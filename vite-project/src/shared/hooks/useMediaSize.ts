@@ -12,12 +12,12 @@ export default function useMediaSize(): IMediaSize {
     };
   } else if (mediumSize) {
     return {
-      isMobile: smallSize,
+      isMobile: mediumSize,
       size: "md",
     };
   } else {
     return {
-      isMobile: smallSize,
+      isMobile: false,
       size: "lg",
     };
   }
