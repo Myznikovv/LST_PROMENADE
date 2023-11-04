@@ -1,36 +1,12 @@
 import { createTheme } from "@mui/material";
+import { typography } from "../../shared/config/typography";
+
 import InterRegular from "/fonts/Inter-Regular.ttf";
 import InterMedium from "/fonts/Inter-Medium.ttf";
 import InterBold from "/fonts/Inter-Bold.ttf";
+
 export const theme = createTheme({
-  typography: {
-    fontFamily: "Inter, sans-serif",
-    h1: {
-      fontWeight: 700,
-      lineHeight: "125%",
-      fontSize: "32px",
-    },
-    h2: {
-      fontWeight: 700,
-      lineHeight: "125%",
-      fontSize: "24px",
-    },
-    body1: {
-      fontWeight: 400,
-      lineHeight: "125%",
-      fontSize: "16px",
-    },
-    caption: {
-      fontWeight: 400,
-      lineHeight: "140%",
-      fontSize: "14px",
-    },
-    button: {
-      fontWeight: 500,
-      lineHeight: "100%",
-      fontSize: "20px",
-    },
-  },
+  typography: typography,
   components: {
     MuiCssBaseline: {
       styleOverrides: `

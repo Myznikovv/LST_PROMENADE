@@ -6,7 +6,6 @@ export default function AppThemeProvider({
 }: {
   children: React.ReactNode;
 }) {
-  console.log(children);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
