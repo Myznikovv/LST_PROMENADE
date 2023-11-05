@@ -19,6 +19,25 @@ export const theme = createTheme({
   },
   typography: typography,
   components: {
+    MuiBottomNavigationAction: {
+      defaultProps: {
+        disableRipple: true,
+      },
+      styleOverrides: {
+        root: {
+          color: "#BDBDBD",
+          "&.Mui-selected": {
+            color: "#003790",
+          },
+        },
+        label: {
+          color: "#BDBDBD",
+          "&.Mui-selected": {
+            color: "#003790",
+          },
+        },
+      },
+    },
     MuiCssBaseline: {
       styleOverrides: `
         @font-face {

@@ -1,6 +1,6 @@
 import { palette } from "../../shared/config/palette";
 //пока что не понял как полность кастомизировать палитру из-за этого пока что так оставил
-import SovcomBankLogo from "../../shared/components/Icons/SovcomBankLogo";
+import SovcomBankLogo from "../../shared/components/icons/SovcomBankLogo";
 import { OutlinedInput, styled } from "@mui/material";
 import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
@@ -88,7 +88,7 @@ const LoginPage = () => {
   };
 
   const handleEnterClick = () => {
-    navigate("/");
+    navigate("/tasks");
   };
   return (
     <LoginLayout>

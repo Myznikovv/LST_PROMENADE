@@ -1,8 +1,7 @@
-
 import React from "react";
 import SvgIcon, { SvgIconProps } from "@mui/material/SvgIcon";
 
-const AccountIcon = React.forwardRef<SVGSVGElement, SvgIconProps>(
+const SovcomBankLogo = React.forwardRef<SVGSVGElement, SvgIconProps>(
   (props, ref) => (
     <SvgIcon
       {...props}
@@ -35,4 +34,4 @@ const AccountIcon = React.forwardRef<SVGSVGElement, SvgIconProps>(
   )
 );
 
-export default AccountIcon;
+export default SovcomBankLogo;
