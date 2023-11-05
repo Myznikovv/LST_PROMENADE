@@ -4,8 +4,9 @@ import MobileRootLayout from "./MobileRootLayout";
 
 export default function RootLayout() {
   const mediaSize = useMediaSize();
-
   return (
-    <>{mediaSize.isMobile ? <MobileRootLayout /> : <DesktopRootLayout />}</>
+    <>
+      <>{mediaSize.isMobile ? <MobileRootLayout /> : <DesktopRootLayout />}</>
+    </>
   );
 }
