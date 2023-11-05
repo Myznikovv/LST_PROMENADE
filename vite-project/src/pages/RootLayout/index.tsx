@@ -3,9 +3,11 @@ import Box from "@mui/material/Box";
 import { CircularProgress } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import useMediaSize from "../../shared/hooks/useMediaSize";
+import DesktopRootLayout from "./DesktopRootLayout";
+import MobileRootLayout from "./MobileRootLayout";
 
 export default function RootLayout() {
-    const mediaSize = useMediaSize();
+  const mediaSize = useMediaSize();
   return (
     <>
       <Box className="drawer" />
@@ -14,9 +16,7 @@ export default function RootLayout() {
           <Outlet />
         </Suspense>
       </Box>
-      <div>
-      {mediaSize.isMobile} {mediaSize.size}
-    </div>
+      <>{mediaSize.isMobile ? <MobileRootLayout /> : <DesktopRootLayout />}</>
     </>
   );
 }
