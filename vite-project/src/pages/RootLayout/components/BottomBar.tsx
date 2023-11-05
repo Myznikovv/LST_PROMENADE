@@ -3,7 +3,7 @@ import { useState, SyntheticEvent } from "react";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 
-import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
+import SchoolOutlined from "@mui/icons-material/SchoolOutlined";
 import FormatListNumberedRoundedIcon from "@mui/icons-material/FormatListNumberedRounded";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
@@ -55,7 +55,7 @@ const BottomBar = () => {
         <BottomNavigationAction
           label="Курсы"
           value="courses"
-          icon={<SchoolRoundedIcon />}
+          icon={<SchoolOutlined />}
         />
         <BottomNavigationAction
           label="Профиль"
