@@ -6,13 +6,6 @@ const SovcomBankLogo = React.forwardRef<SVGSVGElement, SvgIconProps>(
     <SvgIcon
       {...props}
       ref={ref}
-      sx={{
-        width: "40px",
-        borderRadius: "50%",
-        height: "40px",
-        marginLeft: "5px",
-        marginTop: "5px",
-      }}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
