@@ -6,6 +6,17 @@ import InterMedium from "/fonts/Inter-Medium.ttf";
 import InterBold from "/fonts/Inter-Bold.ttf";
 
 export const theme = createTheme({
+  palette: {
+    error: { main: "#FF3B30" },
+    primary: { main: "#FC5055", light: "#DD434B", dark: "#DC3B43" },
+    secondary: { main: "#003790" },
+    text: {
+      secondary: "#616161",
+      primary: "#212121",
+      disabled: "#BDBDBD",
+      // teritary: "#BDBDBD",
+    },
+  },
   typography: typography,
   components: {
     MuiCssBaseline: {
