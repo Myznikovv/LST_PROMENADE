@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material";
-import { typography } from "../../shared/config/typography";
 
 import InterRegular from "/fonts/Inter-Regular.ttf";
 import InterMedium from "/fonts/Inter-Medium.ttf";
@@ -17,7 +16,9 @@ export const theme = createTheme({
       // teritary: "#BDBDBD",
     },
   },
-  typography: typography,
+  typography: {
+    fontFamily: "Inter, sans-serif",
+  },
   components: {
     MuiBottomNavigationAction: {
       defaultProps: {
