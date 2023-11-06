@@ -1,9 +1,8 @@
-import Typography from "@mui/material/Typography";
+import useMediaSize from "../../shared/hooks/useMediaSize";
+import MobileProfile from "./MobileProfile";
 
 export default function Profile() {
-  return (
-    <div>
-      <Typography variant="h1">Profile</Typography>
-    </div>
-  );
+  const mediaSize = useMediaSize();
+
+  return <>{mediaSize.isMobile && <MobileProfile />}</>;
 }

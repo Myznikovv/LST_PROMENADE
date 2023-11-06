@@ -16,7 +16,8 @@ const StyledBottomNavigation = styled(BottomNavigation)({
   bottom: 0,
   left: 0,
   right: 0,
-  padding: "2rem 0",
+  padding: "1.5rem 0",
+  height: "4.5rem",
   zIndex:2
 });
 
@@ -37,7 +38,7 @@ const BottomBar = () => {
   };
 
   return (
-    <div>
+    <>
       <StyledBottomNavigation
         showLabels
         value={bottomNavigationValue}
@@ -64,7 +65,7 @@ const BottomBar = () => {
           icon={<PersonOutlinedIcon />}
         />
       </StyledBottomNavigation>
-    </div>
+    </>
   );
 };
 
