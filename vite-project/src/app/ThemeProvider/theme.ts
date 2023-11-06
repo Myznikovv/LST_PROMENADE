@@ -15,6 +15,9 @@ export const theme = createTheme({
       disabled: "#BDBDBD",
       // teritary: "#BDBDBD",
     },
+    background: {
+      default: "#F6F7F8",
+    },
   },
   typography: {
     fontFamily: "Inter, sans-serif",
