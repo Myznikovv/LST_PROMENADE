@@ -1,6 +1,6 @@
 import { palette } from "../../shared/config/palette";
 //пока что не понял как полность кастомизировать палитру из-за этого пока что так оставил
-import SovcomBankLogo from "../../shared/components/icons/SovcomBankLogo";
+import SovcomBankLogo from "../../shared/components/Icons/SovcomBankLogo";
 import { OutlinedInput, styled } from "@mui/material";
 import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
@@ -45,7 +45,7 @@ const StyledInput = styled(OutlinedInput)({
   background: palette.monochrome.white,
 });
 
-const StyledButton = styled(Button)({
+export const StyledButton = styled(Button)({
   borderRadius: " 2rem",
   fontFamily: "Inter",
   fontSize: "1.25rem",
@@ -53,7 +53,7 @@ const StyledButton = styled(Button)({
   fontWeight: "600",
   background: palette.button.default,
   color: palette.monochrome.white,
-  width: " 24.75rem",
+  width: " 23.75rem",
   padding: "0.9375rem",
   marginTop: "1.25rem",
   ":hover": {
