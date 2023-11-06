@@ -4,8 +4,8 @@ import Drawer from "@mui/material/Drawer";
 import { theme } from "../../../app/ThemeProvider/theme";
 import DropListIcon from "../Icons/DragbleDropDownIcon";
 
-import { StyledButton } from "../../../pages/Login";
 import TaskCorusel from "../TasksCorusel";
+import { StyledButtonMobile } from "../../../pages/Login/MobileLogin";
 
 const StyledDrawer = styled(Drawer)({
   marginTop: "450px",
@@ -18,10 +18,10 @@ const StyledDrawer = styled(Drawer)({
   borderRadius: "10px",
 });
 
-const StyledButtonOpen = styled(StyledButton)({
+const StyledButtonOpen = styled(StyledButtonMobile)({
   position: "absolute",
   bottom: "80px",
-  left: "10px",
+  left: "30px",
 });
 
 function BottomSheet({ openTaskList }: { openTaskList: () => void }) {

@@ -6,7 +6,6 @@ import BottomBar from "./components/BottomBar";
 export default function MobileRootLayout() {
   return (
     <div>
-      <Typography variant="h5">MobileRootLayout</Typography>
       <Suspense fallback={<CircularProgress />}>
         <Outlet />
       </Suspense>

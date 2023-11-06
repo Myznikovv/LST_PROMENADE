@@ -190,7 +190,7 @@ export default function Tasks() {
               }}
             />
 
-            <Typography marginBottom={"1rem"} variant="h1">
+            <Typography marginBottom={"1rem"} variant="h3">
               Задачи
             </Typography>
 

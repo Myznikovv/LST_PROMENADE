@@ -4,7 +4,7 @@ import { Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { theme } from "../../../app/ThemeProvider/theme";
 import CommentIcon from "../Icons/CommentIcon";
-import { StyledButton } from "../../../pages/Login";
+import { StyledButtonMobile } from "../../../pages/Login/MobileLogin";
 
 interface TaskCardProps {
   title: string;
@@ -15,6 +15,7 @@ interface TaskCardProps {
   openTaskList?: () => void;
   taskNumber?: number;
 }
+
 
 const TaskCard = ({
   time,
@@ -29,7 +30,7 @@ const TaskCard = ({
     <Stack>
       {taskNumber ? (
         <Typography
-          variant="h1"
+          variant="h4"
           marginBottom={"1rem"}
         >{`Задача № ${taskNumber}`}</Typography>
       ) : null}
@@ -116,8 +117,8 @@ const TaskCard = ({
         Чат с менеджером
       </Link>
       {!taskNumber ? (
-        <StyledButton variant="outlined">Начать</StyledButton>
-      ) : null  }
+        <StyledButtonMobile sx={{mt:"1rem"}} variant="outlined">Начать</StyledButtonMobile>
+      ) : null}
     </Stack>
   );
 };

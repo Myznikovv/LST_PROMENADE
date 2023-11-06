@@ -97,7 +97,7 @@ const TaskCorusel = ({ openTaskList }: { openTaskList: () => void }) => {
         </>
       ) : (
         <Box>
-          <Typography marginTop="1.5rem" variant="h1">
+          <Typography marginTop="1.5rem" variant="h4">
             Задач сейчас нет
           </Typography>
           <Typography marginTop="0.5rem">
