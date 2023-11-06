@@ -6,11 +6,17 @@ export const typographyMobile: TypographyOptions = {
     fontWeight: 700,
     lineHeight: "125%",
     fontSize: "32px",
+    letterSpacing: "-0.04rem",
   },
   h2: {
     fontWeight: 700,
     lineHeight: "125%",
     fontSize: "24px",
+  },
+  h6: { // Card Title
+    fontWeight: 500,
+    lineHeight: "125%",
+    fontSize: "1.5rem"
   },
   body1: {
     fontWeight: 400,
