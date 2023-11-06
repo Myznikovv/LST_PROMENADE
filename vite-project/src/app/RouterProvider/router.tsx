@@ -8,6 +8,7 @@ import Courses from "../../pages/Courses";
 import RootLayout from "../../pages/RootLayout";
 import Error from "../../pages/Error";
 import Profile from "../../pages/Profile";
+import DialogChat from "../../pages/Chat/DialogChat.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: "/chat",
         element: <Chat />,
+      },
+      {
+        path: "/chat/:chatId",
+        element: <DialogChat/>,
       },
       {
         path: "/courses",
