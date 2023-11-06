@@ -38,7 +38,7 @@ export default function Chat() {
       </Tabs>
 
       <List sx={{ width: "100%", padding: 0 }}>
-        <ListItem onClick={() => navigate("/chat/0")}>
+        <ListItem onClick={() => navigate("/chats/0")}>
           <ListItemAvatar>
             <Avatar sx={{ background: theme.palette.common.white }}>
               <Box
@@ -62,7 +62,7 @@ export default function Chat() {
           />
         </ListItem>
         <Divider />
-        <ListItem onClick={() => navigate("/chat/1")}>
+        <ListItem onClick={() => navigate("/chats/1")}>
           <ListItemAvatar>
             <Avatar sx={{ background: theme.palette.common.white }}>
               <Box
@@ -84,7 +84,7 @@ export default function Chat() {
           />
         </ListItem>
         <Divider />
-        <ListItem onClick={() => navigate("/chat/2")}>
+        <ListItem onClick={() => navigate("/chats/2")}>
           <ListItemAvatar>
             <Avatar sx={{ background: theme.palette.common.white }}>
               <Box

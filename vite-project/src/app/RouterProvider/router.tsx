@@ -26,11 +26,11 @@ export const router = createBrowserRouter([
       },
       
       {
-        path: "/chat",
+        path: "/chats",
         element: <Chat />,
       },
       {
-        path: "/chat/:chatId",
+        path: "/chats/:chatId",
         element: <DialogChat/>,
       },
       {
