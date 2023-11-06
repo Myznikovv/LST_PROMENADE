@@ -1,4 +1,4 @@
-import { CircularProgress } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import BottomBar from "./components/BottomBar";
