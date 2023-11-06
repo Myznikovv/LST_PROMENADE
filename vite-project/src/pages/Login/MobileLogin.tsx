@@ -12,7 +12,7 @@ import { StyledFormControl, StyledFormHelperText } from ".";
 
 const LoginLayoutMobile = styled("div")({
   background: palette.background.tertiary,
-  height: "100vh"
+  height: "100%"
 });
 
 const LoginFormMobile = styled("div")({
@@ -47,6 +47,7 @@ const StyledButtonMobile = styled(Button)({
   background: palette.button.default,
   color: palette.monochrome.white,
   width: "22.5rem",
+  marginTop: "0.5rem",
   padding: "0.9375rem",
   ":hover": {
     background: palette.button.hover,

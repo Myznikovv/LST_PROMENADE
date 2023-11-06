@@ -1,16 +1,16 @@
-import { CircularProgress, Typography } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
+
 import BottomBar from "./components/BottomBar";
 
 export default function MobileRootLayout() {
   return (
-    <div>
-      <Typography variant="h5">MobileRootLayout</Typography>
+    <>
       <Suspense fallback={<CircularProgress />}>
         <Outlet />
       </Suspense>
       <BottomBar />
-    </div>
+    </>
   );
 }

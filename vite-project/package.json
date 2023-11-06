@@ -21,6 +21,7 @@
     "react-router-dom": "^6.18.0"
   },
   "devDependencies": {
+    "@mui/x-charts": "^6.18.0",
     "@types/react": "^18.2.34",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",

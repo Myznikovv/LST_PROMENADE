@@ -12,7 +12,7 @@ export const StyledFormHelperText = styled(FormHelperText)({
 });
 
 export const StyledFormControl = styled(FormControl)({
-  marginBottom: "0.61rem",
+  marginBottom: "0.625rem",
 });
 
 const LoginPage = () => {

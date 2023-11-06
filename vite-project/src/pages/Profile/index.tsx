@@ -1,5 +1,8 @@
+import useMediaSize from "../../shared/hooks/useMediaSize";
+import MobileProfile from "./MobileProfile";
+
 export default function Profile() {
-  return (
-    <div>Profile</div>
-  )
+  const mediaSize = useMediaSize();
+
+  return <>{mediaSize.isMobile && <MobileProfile />}</>;
 }
