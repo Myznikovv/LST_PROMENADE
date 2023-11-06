@@ -15,6 +15,7 @@ import Achivement from "./components/Achivement";
 import Chart from "../../shared/assets/chart.png";
 import Running from "../../shared/assets/running.png";
 import Trophy from "../../shared/assets/trophy.png";
+import { useNavigate } from "react-router-dom";
 
 const ProfileLayoutMobile = styled("div")({
   background: palette.background.tertiary,
@@ -31,6 +32,7 @@ const ButtonStyled = styled(Button)({
   position: "absolute",
   top: "2rem",
   right: "0.5rem",
+  padding: "0.5rem 0"
 });
 
 const TypographyH1Styled = styled(Typography)({
@@ -46,9 +48,11 @@ const TypographyTextStyled = styled(Typography)({
 });
 
 export default function MobileProfile() {
+  const navigate = useNavigate();
+
   return (
     <ProfileLayoutMobile>
-      <ButtonStyled color="inherit">
+      <ButtonStyled color="inherit" onClick={() => navigate("/login")}>
         <LogoutRoundedIconStyled />
       </ButtonStyled>
       <Box
