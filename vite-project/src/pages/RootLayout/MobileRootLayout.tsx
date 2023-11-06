@@ -1,16 +1,21 @@
-import { CircularProgress, Typography } from "@mui/material";
+import { CircularProgress, styled } from "@mui/material";
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import BottomBar from "./components/BottomBar";
+import { theme } from "../../app/ThemeProvider/theme";
+
+const StyledContaner = styled("div")({
+  background: theme.palette.grey[100],
+  height:"93vh"
+});
 
 export default function MobileRootLayout() {
   return (
-    <div>
-      <Typography variant="h1">MobileRootLayout</Typography>
+    <StyledContaner>
       <Suspense fallback={<CircularProgress />}>
         <Outlet />
       </Suspense>
       <BottomBar />
-    </div>
+    </StyledContaner>
   );
 }
