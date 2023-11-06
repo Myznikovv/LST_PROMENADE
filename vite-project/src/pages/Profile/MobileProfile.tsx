@@ -12,6 +12,10 @@ import BadgeStyled from "../../shared/components/BadgeStyled";
 import SwitchTabs from "./components/SwitchTabs";
 import Achivement from "./components/Achivement";
 
+import Chart from "../../shared/assets/chart.png";
+import Running from "../../shared/assets/running.png";
+import Trophy from "../../shared/assets/trophy.png";
+
 const ProfileLayoutMobile = styled("div")({
   background: palette.background.tertiary,
   height: "100%",
@@ -80,7 +84,9 @@ export default function MobileProfile() {
             borderRadius: "1rem",
           }}
         >
-          <TypographyH2Styled style={{ marginTop: "1rem", marginBottom: "0.5rem" }}>
+          <TypographyH2Styled
+            style={{ marginTop: "1rem", marginBottom: "0.5rem" }}
+          >
             Ваш KPI
           </TypographyH2Styled>
           <SwitchTabs />
@@ -115,19 +121,19 @@ export default function MobileProfile() {
             Достижения
           </TypographyH2Styled>
           <Achivement
-            emoji="🏃"
+            emoji={<Box component={"img"} src={Running} />}
             title="Быстрее ветра"
             value={72}
             description="Заверши 25 заказов раньше плана"
           />
           <Achivement
-            emoji="📈"
+            emoji={<Box component={"img"} src={Chart} />}
             title="Потенциал"
             value={100}
             description="Перевыполни KPI"
           />
           <Achivement
-            emoji="🏆"
+            emoji={<Box component={"img"} src={Trophy} />}
             title="Победитель"
             value={0}
             description="Перевыполни KPI за квартал"

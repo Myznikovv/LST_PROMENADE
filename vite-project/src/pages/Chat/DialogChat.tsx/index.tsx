@@ -54,7 +54,7 @@ const DialogChat = () => {
                 letterSpacing: "-0.01rem",
               }}
             >
-              1. Выезд на точку для стимулирования выдач
+              1. Выезд на точку для стимулирования выдач
             </Typography>
           </Stack>
         </Stack>

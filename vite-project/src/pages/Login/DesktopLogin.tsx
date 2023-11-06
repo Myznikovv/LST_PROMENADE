@@ -9,7 +9,7 @@ import { palette } from "../../shared/config/palette";
 import { theme } from "../../app/ThemeProvider/theme";
 import { typographyDesktop } from "../../shared/config/typography";
 
-import SovcomBankLogo from "../../shared/components/icons/SovcomBankLogo";
+import SovcomBankLogo from "../../shared/components/Icons/SovcomBankLogo";
 import { StyledFormControl, StyledFormHelperText } from ".";
 
 const LoginLayoutDesktop = styled("div")({

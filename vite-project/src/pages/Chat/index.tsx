@@ -12,7 +12,7 @@ import { theme } from "../../app/ThemeProvider/theme";
 import { palette } from "../../shared/config/palette";
 
 import Bank from "../../shared/assets/bank.png";
-import Lerning from "../../shared/assets/lerning.png";
+import Learning from "../../shared/assets/learning.png";
 import Courier from "../../shared/assets/courier.png";
 import { useNavigate } from "react-router-dom";
 
@@ -52,7 +52,7 @@ export default function Chat() {
           </ListItemAvatar>
           <ListItemText
             primary={
-              <Typography fontWeight={500}>1. Выезд на то...</Typography>
+              <Typography fontWeight={500}>1. Выезд на то...</Typography>
             }
             secondary={
               <Typography sx={{ color: "#8D8E90", fontSize: " 0.875rem" }}>
@@ -69,7 +69,7 @@ export default function Chat() {
                 sx={{
                   width: "1.5rem",
                   height: "1.5rem",
-                  background: `url(${Lerning})`,
+                  background: `url(${Learning})`,
                 }}
               />
             </Avatar>

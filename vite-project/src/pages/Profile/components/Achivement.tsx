@@ -14,7 +14,7 @@ const TypographyTextStyled = styled(Typography)({
 });
 
 type TPropsAchivement = {
-  emoji: string;
+  emoji: JSX.Element;
   value: number;
   title: string;
   description: string;
