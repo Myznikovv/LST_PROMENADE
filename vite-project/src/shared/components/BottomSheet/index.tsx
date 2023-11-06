@@ -21,7 +21,10 @@ const StyledDrawer = styled(Drawer)({
 const StyledButtonOpen = styled(StyledButtonMobile)({
   position: "absolute",
   bottom: "80px",
-  left: "30px",
+  left: "0",
+  right: "0",
+  margin: "0 auto",
+  width: "20rem"
 });
 
 function BottomSheet({ openTaskList }: { openTaskList: () => void }) {

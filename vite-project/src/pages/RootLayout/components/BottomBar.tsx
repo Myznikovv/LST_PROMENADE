@@ -17,7 +17,7 @@ const StyledBottomNavigation = styled(BottomNavigation)({
   left: 0,
   right: 0,
   padding: "1.5rem 0",
-  height: "5rem",
+  height: "4.5rem",
   zIndex:2
 });
 
