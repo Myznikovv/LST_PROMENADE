@@ -7,8 +7,9 @@ import Button from "@mui/material/Button";
 
 import { typographyMobile } from "../../shared/config/typography";
 import { palette } from "../../shared/config/palette";
-import SovcomBankLogo from "../../shared/components/icons/SovcomBankLogo";
+
 import { StyledFormControl, StyledFormHelperText } from ".";
+import SovcomBankLogo from "../../shared/components/Icons/SovcomBankLogo";
 
 const LoginLayoutMobile = styled("div")({
   background: palette.background.tertiary,
@@ -41,7 +42,7 @@ const StyledInputMobile = styled(OutlinedInput)({
   background: palette.monochrome.white,
 });
 
-const StyledButtonMobile = styled(Button)({
+export const StyledButtonMobile = styled(Button)({
   ...typographyMobile.button,
   borderRadius: "6.25rem",
   background: palette.button.default,
