@@ -16,7 +16,8 @@ const StyledBottomNavigation = styled(BottomNavigation)({
   bottom: 0,
   left: 0,
   right: 0,
-  paddingBottom: "2rem",
+  padding: "2rem 0",
+  zIndex:2
 });
 
 type TBottomNavigationValue = "courses" | "tasks" | "profile" | "chat";

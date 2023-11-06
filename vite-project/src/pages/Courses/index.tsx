@@ -1,5 +1,7 @@
+import Typography from "@mui/material/Typography";
+
 export default function Courses() {
   return (
-    <div>Courses</div>
+    <div><Typography variant="h1">Courses</Typography></div>
   )
 }
