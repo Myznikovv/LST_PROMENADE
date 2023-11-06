@@ -42,10 +42,11 @@ export default function Chat() {
           <ListItemAvatar>
             <Avatar sx={{ background: theme.palette.common.white }}>
               <Box
+                component={"img"}
+                src={Bank}
                 sx={{
                   width: "1.5rem",
                   height: "1.5rem",
-                  background: `url(${Bank})`,
                 }}
               />
             </Avatar>
@@ -66,10 +67,11 @@ export default function Chat() {
           <ListItemAvatar>
             <Avatar sx={{ background: theme.palette.common.white }}>
               <Box
+                component={"img"}
+                src={Learning}
                 sx={{
                   width: "1.5rem",
                   height: "1.5rem",
-                  background: `url(${Learning})`,
                 }}
               />
             </Avatar>
@@ -88,10 +90,11 @@ export default function Chat() {
           <ListItemAvatar>
             <Avatar sx={{ background: theme.palette.common.white }}>
               <Box
+                component={"img"}
+                src={Courier}
                 sx={{
                   width: "1.5rem",
                   height: "1.5rem",
-                  background: `url(${Courier})`,
                 }}
               />
             </Avatar>

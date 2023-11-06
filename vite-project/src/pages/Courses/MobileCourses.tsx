@@ -25,8 +25,14 @@ export default function MobileCourses() {
       <Box marginBottom="2rem">
         <TypographyH1Mobile>Продолжить обучение</TypographyH1Mobile>
         <CourseCard
+          course={{
+            courseId: 0,
+            courseCompleteness: 84,
+            courseLength: 6,
+            courseTitle: "Проверка отделений",
+            courseLevel: "Продвинутым",
+          }}
           cardBgColor="#40CBE0"
-          chipLabel="Продвинутым"
           imageSrc={Bank}
         />
       </Box>
@@ -39,13 +45,25 @@ export default function MobileCourses() {
           marginBottom={"6rem"}
         >
           <CourseCard
+            course={{
+              courseId: 1,
+              courseCompleteness: 0,
+              courseLength: 8,
+              courseTitle: "Стимулирование выдач банковских карт",
+              courseLevel: "Продвинутым",
+            }}
             cardBgColor="#34C759"
-            chipLabel="Продвинутым"
             imageSrc={Card}
           />
           <CourseCard
+            course={{
+              courseId: 2,
+              courseCompleteness: 51,
+              courseLength: 6,
+              courseTitle: "Обучение агента",
+              courseLevel: "Начинающим",
+            }}
             cardBgColor="#007AFF"
-            chipLabel="Начинающим"
             imageSrc={Person}
           />
         </Box>
