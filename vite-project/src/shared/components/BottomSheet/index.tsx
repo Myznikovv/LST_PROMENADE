@@ -5,10 +5,9 @@ import { theme } from "../../../app/ThemeProvider/theme";
 import DropListIcon from "../Icons/DragbleDropDownIcon";
 
 import TaskCorusel from "../TasksCorusel";
-import { StyledButtonMobile } from "../../../pages/Login/MobileLogin";
 
 const StyledDrawer = styled(Drawer)({
-  marginTop: "450px",
+  marginTop: "430px",
   height: "200%",
   width: "100%",
   transition: "transform 0.5s",
@@ -16,19 +15,16 @@ const StyledDrawer = styled(Drawer)({
   background: theme.palette.common.white,
   zIndex: 0,
   borderRadius: "10px",
-});
-
-const StyledButtonOpen = styled(StyledButtonMobile)({
-  position: "absolute",
-  bottom: "80px",
-  left: "0",
-  right: "0",
-  margin: "0 auto",
-  width: "20rem"
+  ".MuiBackdrop-root ": {
+    opacity: 0,
+    borderRadius: "20px",
+  },
+  ".MuiPaper-root ": {
+    borderRadius: "20px",
+  },
 });
 
 function BottomSheet({ openTaskList }: { openTaskList: () => void }) {
-  const [open, setOpen] = useState(false);
   const [startY, setStartY] = useState(0);
   const [currentY, setCurrentY] = useState(0);
   const drawerRef = useRef<HTMLDivElement | null>(null);
@@ -42,7 +38,7 @@ function BottomSheet({ openTaskList }: { openTaskList: () => void }) {
     setCurrentY(e.touches[0].clientY);
     const deltaY = currentY - startY;
 
-    if (deltaY > 0 || deltaY < -100) {
+    if (deltaY > 400 || deltaY < 0) {
       return;
     }
     if (drawerRef.current) {
@@ -51,19 +47,19 @@ function BottomSheet({ openTaskList }: { openTaskList: () => void }) {
   };
 
   const handleTouchEnd = () => {
-    if (currentY - startY > 100) {
-      setOpen(false);
-      if (drawerRef.current) {
-        drawerRef.current.style.transform = "translateY(0)";
-      }
-    }
+    // if (currentY - startY > 100) {
+    //   setOpen(false);
+    //   if (drawerRef.current) {
+    //     drawerRef.current.style.transform = "translateY(0)";
+    //   }
+    // }
   };
 
   return (
     <div>
       <StyledDrawer
         anchor="bottom"
-        open={open}
+        open={true}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -83,10 +79,6 @@ function BottomSheet({ openTaskList }: { openTaskList: () => void }) {
           <TaskCorusel openTaskList={openTaskList} />
         </div>
       </StyledDrawer>
-
-      <StyledButtonOpen onClick={() => setOpen(true)}>
-        Открыть задачи
-      </StyledButtonOpen>
     </div>
   );
 }
