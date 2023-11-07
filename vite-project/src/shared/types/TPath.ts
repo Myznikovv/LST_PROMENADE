@@ -1,1 +1,0 @@
-export type TPath = "tasks" | "chats" | "courses" | "profile";

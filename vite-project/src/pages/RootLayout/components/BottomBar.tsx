@@ -9,8 +9,8 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 
 import styled from "@mui/material/styles/styled";
-import { useNavigate } from "react-router-dom";
-import { TPath } from "../../../shared/types/TPath";
+import { useLocation, useNavigate } from "react-router-dom";
+import getPath from "../../../shared/hooks/getPath";
 
 const StyledBottomNavigation = styled(BottomNavigation)({
   position: "fixed",
@@ -23,12 +23,16 @@ const StyledBottomNavigation = styled(BottomNavigation)({
 });
 
 const BottomBar = () => {
-  const [bottomNavigationValue, setBottomNavigationValue] =
-    useState<TPath>("tasks");
-
   const navigate = useNavigate();
+  const currentLocation = useLocation();
+  const [bottomNavigationValue, setBottomNavigationValue] = useState<string>(
+    getPath(currentLocation.pathname)
+  );
 
-  const handleBottomNavigationChange = (_: SyntheticEvent, newValue: TPath) => {
+  const handleBottomNavigationChange = (
+    _: SyntheticEvent,
+    newValue: string
+  ) => {
     setBottomNavigationValue(newValue);
     navigate(newValue);
   };
