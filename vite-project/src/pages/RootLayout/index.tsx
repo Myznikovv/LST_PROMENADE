@@ -9,9 +9,13 @@ export default function RootLayout() {
   const mediaSize = useMediaSize();
   const navigate = useNavigate();
 
+  const permissionRole = "manager" as string; //это временная заглушка по пермиссии для пользователя
+
   useEffect(() => {
-    navigate("/tasks");
-  }, [navigate]);
+    permissionRole === "visitor"
+      ? navigate("/tasks")
+      : navigate("/manager/dashboard");
+  }, []);
 
   return (
     <>

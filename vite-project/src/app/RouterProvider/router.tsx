@@ -9,6 +9,11 @@ import RootLayout from "../../pages/RootLayout";
 import Error from "../../pages/Error";
 import Profile from "../../pages/Profile";
 import DialogChat from "../../pages/Chat/DialogChat.tsx";
+import DashboardPage from "../../pages/Dashboard/index.tsx";
+import ManagerChatPage from "../../pages/Chat/ManagerChatPage/index.tsx";
+import DepartmentsPage from "../../pages/DepartmentPage/index.tsx";
+import EmployeePage from "../../pages/EmployeePage/index.tsx";
+import ManagerTaskPage from "../../pages/Tasks/ManagerTaskPage/index.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -24,14 +29,14 @@ export const router = createBrowserRouter([
         path: "/tasks",
         element: <Tasks />,
       },
-      
+
       {
         path: "/chat",
         element: <Chat />,
       },
       {
         path: "/chat/:chatId",
-        element: <DialogChat/>,
+        element: <DialogChat />,
       },
       {
         path: "/courses",
@@ -41,7 +46,28 @@ export const router = createBrowserRouter([
         path: "/profile",
         element: <Profile />,
       },
+      {
+        path: "/manager/dashboard",
+        element: <DashboardPage />,
+      },
+      {
+        path: "/manager/tasks",
+        element: <ManagerTaskPage />,
+      },
+      {
+        path: "/manager/chat",
+        element: <ManagerChatPage />,
+      },
+      {
+        path: "/manager/deparments",
+        element: <DepartmentsPage />,
+      },
+      {
+        path: "/manager/employees",
+        element: <EmployeePage />,
+      },
     ],
     errorElement: <Error errorReason={EErrorTexts.Error404} />,
   },
+  { path: "*", element: <Error errorReason={EErrorTexts.Error404} /> },
 ]);
