@@ -36,8 +36,8 @@ const DesktopDummy = () => {
           }}
         >
           <span style={{ color: theme.palette.primary.main }}>Упс! </span>
-          Десктоп-версия сервиса для вашей роли сейчас не доступна,
-          так как находится в разработке
+          Десктоп-версия сервиса для вашей роли сейчас не доступна, так как
+          находится в разработке
         </TypographyH1Desktop>
         <Typography
           color={theme.palette.text.secondary}

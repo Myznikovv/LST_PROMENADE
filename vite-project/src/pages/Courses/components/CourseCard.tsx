@@ -18,7 +18,7 @@ const TypographyTitleCard = styled(Typography)({
 const TypographyBody = styled(Typography)({
   ...typographyMobile.body1,
   marginBottom: "1.5rem",
-  maxWidth: "19.125rem",
+  paddingRight: "1rem"
 });
 
 const TypographyTitleCaption = styled(Typography)({

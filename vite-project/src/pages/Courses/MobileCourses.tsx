@@ -28,16 +28,20 @@ const LinkStyled = styled(Link)({
 export default function MobileCourses() {
   const [courseData, setCourseData] = useState<ICourse[]>();
 
+  const bgColors = ["#34C759", "#40CBE0", "#007AFF"]; // FIXME: temp colors - from server or random
+  const icons = [Bank, Card, Person]; // FIXME: temp icons - from server or random
+
   useEffect(() => {
     setCourseData(coursesDummy);
   }, []);
 
-  console.log(courseData);
-
   return (
     <Box
       marginTop="1rem"
-      marginLeft="1rem"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      flexDirection="column"
       bgcolor={palette.background.tertiary}
     >
       <Box marginBottom="2rem">
@@ -47,8 +51,8 @@ export default function MobileCourses() {
             <CourseCard
               cardSize={"small"}
               course={courseData[0]}
-              cardBgColor="#40CBE0"
-              imageSrc={Bank}
+              cardBgColor={bgColors[0]}
+              imageSrc={icons[0] as string}
             />
           </LinkStyled>
         )}
@@ -59,7 +63,7 @@ export default function MobileCourses() {
           display={"flex"}
           flexDirection={"column"}
           gap={"0.5rem"}
-          marginBottom={"6rem"}
+          marginBottom={"4rem"}
         >
           {courseData &&
             courseData.slice(1).map((course) => {
@@ -71,8 +75,8 @@ export default function MobileCourses() {
                   <CourseCard
                     cardSize={"small"}
                     course={course}
-                    cardBgColor="#34C759"
-                    imageSrc={Card}
+                    cardBgColor={bgColors[course.courseId]}
+                    imageSrc={icons[course.courseId] as string}
                   />
                 </LinkStyled>
               );
