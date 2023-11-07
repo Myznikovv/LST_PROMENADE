@@ -9,6 +9,7 @@ import RootLayout from "../../pages/RootLayout";
 import Error from "../../pages/Error";
 import Profile from "../../pages/Profile";
 import DialogChat from "../../pages/Chat/DialogChat.tsx";
+import Course from "../../pages/Courses/Course/index.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -24,18 +25,22 @@ export const router = createBrowserRouter([
         path: "/tasks",
         element: <Tasks />,
       },
-      
+
       {
-        path: "/chat",
+        path: "/chats",
         element: <Chat />,
       },
       {
-        path: "/chat/:chatId",
-        element: <DialogChat/>,
+        path: "/chats/:chatId",
+        element: <DialogChat />,
       },
       {
         path: "/courses",
         element: <Courses />,
+      },
+      {
+        path: "/courses/:courseId",
+        element: <Course />,
       },
       {
         path: "/profile",

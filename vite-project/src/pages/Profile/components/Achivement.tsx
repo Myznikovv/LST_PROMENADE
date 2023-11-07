@@ -44,7 +44,7 @@ export default function Achivement({
         <TypographyTitleStyled>{emoji}</TypographyTitleStyled>
         <BadgeStyled
           badgeContent={`${value || 0}%`}
-          status={value < 50 ? "white" : value < 75 ? "warning" : "success"}
+          status={value < 50 ? "gray" : value < 75 ? "warning" : "success"}
         />
       </Box>
       <Box>
