@@ -12,6 +12,7 @@ import ChartLayout from "./components/ChartLayout";
 import Bank from "../../../shared/assets/bank.png";
 
 import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
+import { useNavigate } from "react-router-dom";
 
 const ChatHeader = styled(Box)({
   width: "100%",
@@ -23,16 +24,18 @@ const ChatHeader = styled(Box)({
 });
 
 const DialogChat = () => {
+  const navigate = useNavigate();
   return (
     <Box>
       <ChatHeader>
         <Stack
           direction="row"
           alignItems={"center"}
-          sx={{ marginLeft: "1rem", marginBottom:"1.19rem" }}
+          sx={{ marginLeft: "1rem", marginBottom: "1.19rem" }}
         >
           <ArrowBackIosNewRoundedIcon
             sx={{ color: theme.palette.common.white }}
+            onClick={() => navigate("/chat")}
           />
           <Stack direction="row" alignItems={"center"} marginLeft={"1rem"}>
             <ListItemAvatar>
