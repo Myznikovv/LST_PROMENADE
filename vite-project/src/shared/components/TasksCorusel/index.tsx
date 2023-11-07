@@ -69,7 +69,7 @@ const TaskCorusel = ({ openTaskList }: { openTaskList: () => void }) => {
             activeStep={activeStep}
             backButton={undefined}
             nextButton={undefined}
-            style={{ padding: "1rem 0" }}
+            style={{ margin: "1rem 0", borderRadius:"2rem" }}
           />
           <Box width={"100%"}>
             <SwipeableViews
