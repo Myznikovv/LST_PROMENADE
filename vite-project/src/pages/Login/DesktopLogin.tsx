@@ -13,13 +13,13 @@ import SovcomBankLogo from "../../shared/components/Icons/SovcomBankLogo";
 import { StyledFormControl, StyledFormHelperText } from ".";
 
 const LoginLayoutDesktop = styled("div")({
-  background: palette.background.tertiary,
+  background: theme.palette.background.default,
   height: "100vh",
   display: "flex",
   alignItems: "center",
 });
 
-const LoginFormDesktop = styled("div")({
+export const LoginFormDesktop = styled("div")({
   background: theme.palette.common.white,
   width: "38.125rem",
   height: "31.75rem",
@@ -30,13 +30,13 @@ const LoginFormDesktop = styled("div")({
   alignItems: "center",
 });
 
-const SovcomBankLogoDesktop = styled(SovcomBankLogo)({
+export const SovcomBankLogoDesktop = styled(SovcomBankLogo)({
   width: "3.75rem",
   height: "3.75rem",
   marginLeft: "0.313rem",
 });
 
-const TypographyH1Desktop = styled("h1")({
+export const TypographyH1Desktop = styled("h1")({
   textAlign: "center",
   ...typographyDesktop.h1,
   marginBottom: "2.5rem",
@@ -47,14 +47,14 @@ const StyledInputDesktop = styled(OutlinedInput)({
   width: "21.875rem",
   borderRadius: "0.625rem",
   border: ` 1px solid ${palette.secondary.borderGrey}`,
-  background: palette.monochrome.white,
+  background: theme.palette.common.white,
 });
 
 const StyledButtonDesktop = styled(Button)({
   ...typographyDesktop.button,
   borderRadius: "6.25rem",
   background: palette.button.default,
-  color: palette.monochrome.white,
+  color: theme.palette.common.white,
   width: "21.875rem",
   padding: "0.9375rem",
   marginTop: "1.25rem",
