@@ -66,8 +66,8 @@ const StyledButtonDesktop = styled(Button)({
 export default function DesktopLogin() {
   const navigate = useNavigate();
   const [error, setError] = useState<boolean>(false);
-  const [email, setEmail] = useState<string | null>(null);
-  const [password, setPassword] = useState<string | null>(null);
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);

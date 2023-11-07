@@ -1,6 +1,7 @@
 import CircularProgress from "@mui/material/CircularProgress";
 import { Suspense } from "react";
 
+
 import {
   Avatar,
   Box,
@@ -35,6 +36,7 @@ import AvatarProfile from "../../shared/assets/Avatar.png";
 
 import { Outlet, useNavigate } from "react-router-dom";
 import DesctopDummy from "../Dummies/DesctopDummy";
+
 
 const Drawer = styled(Box)`
   position: fixed;
@@ -189,7 +191,7 @@ export default function DesktopRootLayout() {
           </Content>
         </>
       ) : (
-        <DesctopDummy />
+        <DesktopDummy />
       )}
     </div>
   );

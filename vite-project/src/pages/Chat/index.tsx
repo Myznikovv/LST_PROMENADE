@@ -38,14 +38,15 @@ export default function Chat() {
       </Tabs>
 
       <List sx={{ width: "100%", padding: 0 }}>
-        <ListItem onClick={() => navigate("/chat/0")}>
+        <ListItem onClick={() => navigate("/chats/0")}>
           <ListItemAvatar>
             <Avatar sx={{ background: theme.palette.common.white }}>
               <Box
+                component={"img"}
+                src={Bank}
                 sx={{
                   width: "1.5rem",
                   height: "1.5rem",
-                  background: `url(${Bank})`,
                 }}
               />
             </Avatar>
@@ -62,14 +63,15 @@ export default function Chat() {
           />
         </ListItem>
         <Divider />
-        <ListItem onClick={() => navigate("/chat/1")}>
+        <ListItem onClick={() => navigate("/chats/1")}>
           <ListItemAvatar>
             <Avatar sx={{ background: theme.palette.common.white }}>
               <Box
+                component={"img"}
+                src={Learning}
                 sx={{
                   width: "1.5rem",
                   height: "1.5rem",
-                  background: `url(${Learning})`,
                 }}
               />
             </Avatar>
@@ -84,14 +86,15 @@ export default function Chat() {
           />
         </ListItem>
         <Divider />
-        <ListItem onClick={() => navigate("/chat/2")}>
+        <ListItem onClick={() => navigate("/chats/2")}>
           <ListItemAvatar>
             <Avatar sx={{ background: theme.palette.common.white }}>
               <Box
+                component={"img"}
+                src={Courier}
                 sx={{
                   width: "1.5rem",
                   height: "1.5rem",
-                  background: `url(${Courier})`,
                 }}
               />
             </Avatar>

@@ -33,6 +33,10 @@ const badgeStatus = {
   },
   white: {
     text: "#BDBDBD",
+    background: "#F6F7F8",
+  },
+  gray: {
+    text: "#BDBDBD",
     background: "#FFF",
   },
 };

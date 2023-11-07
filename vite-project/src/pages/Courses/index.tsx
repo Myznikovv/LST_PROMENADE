@@ -1,7 +1,9 @@
-import Typography from "@mui/material/Typography";
+import useMediaSize from "../../shared/hooks/useMediaSize";
+import DesktopCourses from "./DesktopCourses";
+import MobileCourses from "./MobileCourses";
 
 export default function Courses() {
-  return (
-    <div><Typography variant="h1">Courses</Typography></div>
-  )
+  const mediaSize = useMediaSize();
+
+  return <>{mediaSize.isMobile ? <MobileCourses /> : <DesktopCourses />}</>;
 }

@@ -1,7 +1,7 @@
 import { Box, Typography, styled } from "@mui/material";
 import { theme } from "../../../../../app/ThemeProvider/theme";
 
-const BuubleContainer = styled(Box)({
+const BubbleContainer = styled(Box)({
   borderRadius: "10px",
   margin: "5px",
   padding: "10px",
@@ -30,8 +30,8 @@ const ChatLayout = () => {
   ];
 
   const chatBubbles = dummyData.map((obj, i = 0) => (
-    <Box width={"100%"}>
-      <BuubleContainer
+    <Box width={"100%"} key={i}>
+      <BubbleContainer
         sx={{
           float: obj.direction,
           background:
@@ -55,7 +55,7 @@ const ChatLayout = () => {
         >
           {obj.time}
         </Box>
-      </BuubleContainer>
+      </BubbleContainer>
     </Box>
   ));
   return (

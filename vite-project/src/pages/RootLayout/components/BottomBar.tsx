@@ -9,7 +9,8 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 
 import styled from "@mui/material/styles/styled";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import getPath from "../../../shared/hooks/getPath";
 
 const StyledBottomNavigation = styled(BottomNavigation)({
   position: "fixed",
@@ -18,20 +19,19 @@ const StyledBottomNavigation = styled(BottomNavigation)({
   right: 0,
   padding: "1.5rem 0",
   height: "4.5rem",
-  zIndex:2
+  zIndex: 2,
 });
 
-type TBottomNavigationValue = "courses" | "tasks" | "profile" | "chat";
-
 const BottomBar = () => {
-  const [bottomNavigationValue, setBottomNavigationValue] =
-    useState<TBottomNavigationValue>("tasks");
-
   const navigate = useNavigate();
+  const currentLocation = useLocation();
+  const [bottomNavigationValue, setBottomNavigationValue] = useState<string>(
+    getPath(currentLocation.pathname)
+  );
 
   const handleBottomNavigationChange = (
     _: SyntheticEvent,
-    newValue: TBottomNavigationValue
+    newValue: string
   ) => {
     setBottomNavigationValue(newValue);
     navigate(newValue);
@@ -51,7 +51,7 @@ const BottomBar = () => {
         />
         <BottomNavigationAction
           label="Чаты"
-          value="chat"
+          value="chats"
           icon={<ChatOutlinedIcon />}
         />
         <BottomNavigationAction

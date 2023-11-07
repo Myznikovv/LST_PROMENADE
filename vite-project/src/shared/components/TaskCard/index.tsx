@@ -112,7 +112,7 @@ const TaskCard = ({
           color: theme.palette.secondary.main,
           marginTop: "0.5rem",
         }}
-        to={"/chat"}
+        to={"/chats"}
       >
         Чат с менеджером
       </Link>

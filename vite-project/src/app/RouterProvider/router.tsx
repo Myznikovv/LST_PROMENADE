@@ -15,6 +15,7 @@ import EmployeePage from "../../pages/EmployeePage/index.tsx";
 import ManagerTaskPage from "../../pages/Tasks/ManagerTaskPage/index.tsx";
 
 import DialogChat from "../../pages/Chat/DialogChat.tsx";
+import Course from "../../pages/Courses/Course/index.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -32,7 +33,7 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: "/chat",
+        path: "/chats",
         element: <Chat />,
       },
       {
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
       {
         path: "/courses",
         element: <Courses />,
+      },
+      {
+        path: "/courses/:courseId",
+        element: <Course />,
       },
       {
         path: "/profile",

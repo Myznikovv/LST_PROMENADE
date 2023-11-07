@@ -6,7 +6,7 @@ export default function BadgeStyled({
   status,
 }: {
   badgeContent: string;
-  status: "success" | "warning" | "danger" | "white";
+  status: "success" | "warning" | "danger" | "white" | "gray";
 }) {
   return (
     <div
