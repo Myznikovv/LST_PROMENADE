@@ -1,7 +1,6 @@
 import CircularProgress from "@mui/material/CircularProgress";
 import { Suspense } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
-import DesctopDummy from "../Dummies/DesctopDummy";
+
 import {
   Avatar,
   Box,
@@ -33,6 +32,9 @@ import EmployeeIcon from "../../shared/components/Icons/EmployeeIcon";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 
 import AvatarProfile from "../../shared/assets/Avatar.png";
+
+import { Outlet, useNavigate } from "react-router-dom";
+import DesctopDummy from "../Dummies/DesctopDummy";
 
 const Drawer = styled(Box)`
   position: fixed;

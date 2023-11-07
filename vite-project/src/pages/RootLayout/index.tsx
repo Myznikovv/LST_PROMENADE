@@ -7,6 +7,8 @@ import MobileRootLayout from "./MobileRootLayout";
 
 export default function RootLayout() {
   const mediaSize = useMediaSize();
+
+  
   const navigate = useNavigate();
 
   const permissionRole = "manager" as string; //это временная заглушка по пермиссии для пользователя

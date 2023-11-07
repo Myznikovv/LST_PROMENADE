@@ -8,12 +8,13 @@ import Courses from "../../pages/Courses";
 import RootLayout from "../../pages/RootLayout";
 import Error from "../../pages/Error";
 import Profile from "../../pages/Profile";
-import DialogChat from "../../pages/Chat/DialogChat.tsx";
 import DashboardPage from "../../pages/Dashboard/index.tsx";
 import ManagerChatPage from "../../pages/Chat/ManagerChatPage/index.tsx";
 import DepartmentsPage from "../../pages/DepartmentPage/index.tsx";
 import EmployeePage from "../../pages/EmployeePage/index.tsx";
 import ManagerTaskPage from "../../pages/Tasks/ManagerTaskPage/index.tsx";
+
+import DialogChat from "../../pages/Chat/DialogChat.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -35,7 +36,7 @@ export const router = createBrowserRouter([
         element: <Chat />,
       },
       {
-        path: "/chat/:chatId",
+        path: "/chats/:chatId",
         element: <DialogChat />,
       },
       {
