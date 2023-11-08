@@ -31,6 +31,7 @@ const data = [
 ];
 
 const DashboardPage = () => {
+
   return (
     <Box>
       <Stack direction="row" justifyContent={"space-between"}>
@@ -207,6 +208,7 @@ const DashboardPage = () => {
       </DashboardContent>
     </Box>
   );
+
 };
 
 export default DashboardPage;
