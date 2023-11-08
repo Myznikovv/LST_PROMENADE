@@ -1,7 +1,6 @@
 import CircularProgress from "@mui/material/CircularProgress";
 import { Suspense } from "react";
 
-
 import {
   Avatar,
   Box,
@@ -35,8 +34,7 @@ import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import AvatarProfile from "../../shared/assets/Avatar.png";
 
 import { Outlet, useNavigate } from "react-router-dom";
-import DesctopDummy from "../Dummies/DesctopDummy";
-
+import DesktopDummy from "../Dummies/DesktopDummy";
 
 const Drawer = styled(Box)`
   position: fixed;
@@ -126,7 +124,7 @@ export default function DesktopRootLayout() {
               justifyContent={"space-between"}
             >
               <Box>
-                {/*@ts-ignore */}
+                {/* @ts-ignore */}
                 <ListItemButton component={Link} to={"/manager/dashboard"}>
                   <ListItemIcon>{<DashboarIcon />}</ListItemIcon>
                   <ListItemText primary={"Дашборд"} />
