@@ -13,6 +13,7 @@ const DashboardContent = styled(Box)({
 });
 
 const DashboardPage = () => {
+
   return (
     <Box>
       <StyledTypography>Дашборд</StyledTypography>
@@ -39,6 +40,7 @@ const DashboardPage = () => {
       </DashboardContent>
     </Box>
   );
+
 
 };
 
