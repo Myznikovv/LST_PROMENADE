@@ -124,7 +124,7 @@ export default function DesktopRootLayout() {
               justifyContent={"space-between"}
             >
               <Box>
-                {/*@ts-ignore */}
+                {/* @ts-ignore */}
                 <ListItemButton component={Link} to={"/manager/dashboard"}>
                   <ListItemIcon>{<DashboarIcon />}</ListItemIcon>
                   <ListItemText primary={"Дашборд"} />

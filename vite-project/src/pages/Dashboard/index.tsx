@@ -39,6 +39,7 @@ const DashboardPage = () => {
       </DashboardContent>
     </Box>
   );
+
 };
 
 export default DashboardPage;
