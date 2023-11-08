@@ -1,10 +1,11 @@
 import Stack from "@mui/material/Stack";
 import FiberManualRecordRoundedIcon from "@mui/icons-material/FiberManualRecordRounded";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, styled } from "@mui/material";
 import { Link } from "react-router-dom";
 import { theme } from "../../../app/ThemeProvider/theme";
 import CommentIcon from "../Icons/CommentIcon";
 import { StyledButtonMobile } from "../../../pages/Login/MobileLogin";
+import { typographyMobile } from "../../config/typography";
 
 interface TaskCardProps {
   title: string;
@@ -16,6 +17,11 @@ interface TaskCardProps {
   taskNumber?: number;
 }
 
+const TypographyH1Mobile = styled(Typography)({
+  ...typographyMobile.h1,
+  marginBottom: "1rem",
+  width: "13.9375rem",
+});
 
 const TaskCard = ({
   time,
@@ -29,10 +35,7 @@ const TaskCard = ({
   return (
     <Stack>
       {taskNumber ? (
-        <Typography
-          variant="h4"
-          marginBottom={"1rem"}
-        >{`Задача № ${taskNumber}`}</Typography>
+        <TypographyH1Mobile>{`Задача № ${taskNumber}`}</TypographyH1Mobile>
       ) : null}
       <Stack direction="row">
         <Stack direction="row">
@@ -93,19 +96,21 @@ const TaskCard = ({
       >
         {address}
       </Typography>
-      {comment ?? (
-        <Stack
-          direction="row"
-          sx={{
-            background: theme.palette.grey[300],
-            padding: "0.5rem",
-            borderRadius: " 0.5rem",
-          }}
-        >
-          <CommentIcon />
-          <Typography sx={{ marginLeft: "0.5rem" }}>{comment}</Typography>
-        </Stack>
-      )}
+      <Stack
+        direction="row"
+        sx={{
+          background: theme.palette.grey[300],
+          padding: "1rem",
+          borderRadius: "0.5rem",
+          minHeight: "6rem",
+          marginRight: "0.5rem",
+        }}
+      >
+        <CommentIcon />
+        <Typography sx={{ marginLeft: "0.5rem" }}>
+          {comment ? comment : "Комментарий отсутсвует"}
+        </Typography>
+      </Stack>
       <Link
         style={{
           textDecoration: "none",
@@ -117,8 +122,14 @@ const TaskCard = ({
         Чат с менеджером
       </Link>
       {!taskNumber ? (
-        <StyledButtonMobile sx={{mt:"1rem"}} variant="outlined">Начать</StyledButtonMobile>
-      ) : null}
+        <StyledButtonMobile sx={{ mt: "1rem" }} variant="outlined">
+          Начать
+        </StyledButtonMobile>
+      ) : (
+        <StyledButtonMobile sx={{ mt: "1rem" }} variant="outlined">
+          Завершить
+        </StyledButtonMobile>
+      )}
     </Stack>
   );
 };
