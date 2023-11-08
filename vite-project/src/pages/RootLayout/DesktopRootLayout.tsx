@@ -173,7 +173,7 @@ export default function DesktopRootLayout() {
                     fontWeight: 500,
                   }}
                 >
-                  Анастасия
+                  Лера
                 </Typography>
                 <LogoutRoundedIconStyled
                   onClick={() => navigate("/login")}

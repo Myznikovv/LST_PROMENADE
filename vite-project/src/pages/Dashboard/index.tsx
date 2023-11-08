@@ -10,6 +10,7 @@ import { BarChart } from "@mui/x-charts/BarChart";
 import { theme } from "../../app/ThemeProvider/theme";
 
 import FiberManualRecordRoundedIcon from "@mui/icons-material/FiberManualRecordRounded";
+import { PieChart, pieArcLabelClasses } from "@mui/x-charts/PieChart";
 
 const StyledTypography = styled(Typography)({
   ...typographyDesktop.h1,
@@ -18,6 +19,16 @@ const StyledTypography = styled(Typography)({
 const DashboardContent = styled(Box)({
   marginTop: "2.5rem",
 });
+
+const data = [
+  {
+    label: "Выезд на точку для стимулирования продаж",
+    value: 12,
+    color: "#8EEE2E",
+  },
+  { label: "Обучение агентов", value: 16, color: "#003790" },
+  { label: "Доставка карт и материалов", value: 13, color: "#FC5055" },
+];
 
 const DashboardPage = () => {
   return (
@@ -163,6 +174,34 @@ const DashboardPage = () => {
             <Typography sx={{ ...typographyDesktop.h1, fontSize: "1.75rem" }}>
               Задач за ноябрь
             </Typography>
+            <PieChart
+              series={[
+                {
+                  startAngle: -90,
+                  endAngle: 90,
+                  data,
+                  arcLabel: (item) => `${item.value}`,
+                  arcLabelMinAngle: 45,
+                  innerRadius: 40,
+                  outerRadius: 80,
+                },
+              ]}
+              sx={{
+                [`& .${pieArcLabelClasses.root}`]: {
+                  fill: "white",
+                  fontWeight: "bold",
+                },
+              }}
+              slotProps={{
+                legend: {
+                  direction: "column",
+                  position: { vertical: "top", horizontal: "middle" },
+                  padding: 40,
+                },
+              }}
+              height={300}
+              width={400}
+            />
           </Box>
         </Stack>
       </DashboardContent>
