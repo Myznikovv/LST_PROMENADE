@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useMediaSize from "../../shared/hooks/useMediaSize";
 import DesktopRootLayout from "./DesktopRootLayout";
 import MobileRootLayout from "./MobileRootLayout";
-import { TPath } from "../../shared/types/TPath";
+// import { TPath } from "../../shared/types/TPath";
+import { useNavigate } from "react-router-dom";
 
 export default function RootLayout() {
   const mediaSize = useMediaSize();
@@ -16,8 +17,7 @@ export default function RootLayout() {
       : navigate("/manager/dashboard");
   }, []);
 
-  const [path, setPath] = useState<TPath>("tasks");
-
+  // const [path, setPath] = useState<TPath>("tasks");
 
   return (
     <>
