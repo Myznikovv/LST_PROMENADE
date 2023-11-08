@@ -49,7 +49,7 @@ const Content = styled(Box)`
   padding: 1.25rem 1.25rem 1.25rem 16rem;
   height: 100vh;
   width: "100%";
-  background: ${theme.palette.background.paper};
+  background: ${theme.palette.background.default};
 `;
 const LogoTypography = styled(Typography)`
   color: #212121;
