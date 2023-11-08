@@ -4,8 +4,10 @@ import { Box, Typography, styled } from "@mui/material";
 import { Link } from "react-router-dom";
 import { theme } from "../../../app/ThemeProvider/theme";
 import CommentIcon from "../Icons/CommentIcon";
-import { StyledButtonMobile } from "../../../pages/Login/MobileLogin";
 import { typographyMobile } from "../../config/typography";
+import ConfirmDialog from "../ConfirmDialog";
+import { useEffect, useState } from "react";
+import { getTime, setTime, stopTime } from "../../hooks/useTime";
 
 interface TaskCardProps {
   title: string;
@@ -32,6 +34,38 @@ const TaskCard = ({
   openTaskList,
   taskNumber,
 }: TaskCardProps) => {
+  const [wastedTime, setWastedTime] = useState<string>("00:00");
+  const [isStarted, setIsStarted] = useState<boolean>(false);
+
+  const handleStartTask = () => {
+    setTime();
+    setIsStarted(true);
+  }
+
+  const handleStopTask = () => {
+    stopTime();
+    setIsStarted(false);
+  }
+
+  useEffect(() => {
+    const startTime = getTime();
+    if (startTime) {
+      setIsStarted(true);
+      const currentTime = Date.now();
+      const deltaHours = Math.floor(
+        ((currentTime - startTime) / (1000 * 3600)) % 24
+      );
+      const deltaMinutes = Math.floor(
+        ((currentTime - startTime) / (1000 * 60)) % 24
+      );
+      setWastedTime(
+        `${deltaHours < 10 ? `0${deltaHours}` : deltaHours}:${
+          deltaMinutes < 10 ? `0${deltaMinutes}` : deltaMinutes
+        }`
+      );
+    }
+  }, []);
+
   return (
     <Stack>
       {taskNumber ? (
@@ -121,14 +155,18 @@ const TaskCard = ({
       >
         Чат с менеджером
       </Link>
-      {!taskNumber ? (
-        <StyledButtonMobile sx={{ mt: "1rem" }} variant="outlined">
-          Начать
-        </StyledButtonMobile>
+      {!isStarted ? (
+        <ConfirmDialog
+          buttonText="Начать"
+          onConfirmClick={handleStartTask}
+        />
       ) : (
-        <StyledButtonMobile sx={{ mt: "1rem" }} variant="outlined">
-          Завершить
-        </StyledButtonMobile>
+        <>
+          <ConfirmDialog
+            buttonText={`Завершить (${wastedTime})`}
+            onConfirmClick={handleStopTask}
+          />
+        </>
       )}
     </Stack>
   );
