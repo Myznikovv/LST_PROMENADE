@@ -6,7 +6,18 @@ import { TPath } from "../../shared/types/TPath";
 
 export default function RootLayout() {
   const mediaSize = useMediaSize();
+  const navigate = useNavigate();
+
+  const permissionRole = "manager" as string; //это временная заглушка по пермиссии для пользователя
+
+  useEffect(() => {
+    permissionRole === "visitor"
+      ? navigate("/tasks")
+      : navigate("/manager/dashboard");
+  }, []);
+
   const [path, setPath] = useState<TPath>("tasks");
+
 
   return (
     <>
