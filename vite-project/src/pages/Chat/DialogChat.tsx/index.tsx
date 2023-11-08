@@ -35,16 +35,17 @@ const DialogChat = () => {
         >
           <ArrowBackIosNewRoundedIcon
             sx={{ color: theme.palette.common.white }}
-            onClick={() => navigate("/chat")}
+            onClick={() => navigate("/chats")}
           />
           <Stack direction="row" alignItems={"center"} marginLeft={"1rem"}>
             <ListItemAvatar>
               <Avatar sx={{ background: theme.palette.common.white }}>
                 <Box
+                  component={"img"}
+                  src={Bank}
                   sx={{
                     width: "1.5rem",
                     height: "1.5rem",
-                    background: `url(${Bank})`,
                   }}
                 />
               </Avatar>
