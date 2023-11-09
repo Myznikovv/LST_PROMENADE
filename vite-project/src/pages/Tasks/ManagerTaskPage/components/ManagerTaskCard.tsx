@@ -40,6 +40,11 @@ export default function ManagerTaskCard({
             borderRadius: "4.5rem",
             boxShadow: "none",
             textTransform: "none",
+            backgroundColor: "#003790",
+            ":hover": {
+              backgroundColor: "#003790",
+              boxShadow: "none",
+            },
           }}
         >
           Открыть чат
@@ -77,17 +82,14 @@ export default function ManagerTaskCard({
         />
         <Typography fontWeight={"500"}>{task.employee}</Typography>
       </Box>
-      <Box
+      {/* <Box
         display={"flex"}
         flexDirection={"row"}
         alignItems={"start"}
         justifyContent={"space-between"}
         sx={{
-          width: "32rem",
-          padding: "1rem",
           borderRadius: "0.5rem",
           minHeight: "fit-content",
-          marginRight: "0.5rem",
         }}
       >
         {size === "big" && (
@@ -106,7 +108,7 @@ export default function ManagerTaskCard({
             </Typography>
           </Box>
         )}
-      </Box>
+      </Box> */}
     </Box>
   );
 }

@@ -68,7 +68,7 @@ const DashboardPage = () => {
           <DashboardCard
             title="Задачи выполнено"
             count={2}
-            date="08.11.23"
+            date="07.11.23"
             color="#CD3636"
           />
           <DashboardCard
