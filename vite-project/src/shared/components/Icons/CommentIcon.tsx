@@ -7,11 +7,9 @@ const CommentIcon = React.forwardRef<SVGSVGElement, SvgIconProps>(
       {...props}
       ref={ref}
       sx={{
-        width: "40px",
+        width: "30px",
         borderRadius: "50%",
-        height: "40px",
-        marginLeft: "5px",
-        marginTop: "5px",
+        height: "30px",
       }}
     >
       <svg

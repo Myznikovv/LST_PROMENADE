@@ -47,7 +47,7 @@ export const StyledButtonMobile = styled(Button)({
   borderRadius: "6.25rem",
   background: palette.button.default,
   color: palette.monochrome.white,
-  width: "22.5rem",
+  width: "97.5%",
   marginTop: "0.5rem",
   padding: "0.9375rem",
   ":hover": {

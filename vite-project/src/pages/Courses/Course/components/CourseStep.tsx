@@ -18,7 +18,6 @@ export default function CourseStep({
   stepId: number;
   stepColor: string;
 }) {
-  console.log(stepId);
   return (
     <Box
       bgcolor={palette.monochrome.white}

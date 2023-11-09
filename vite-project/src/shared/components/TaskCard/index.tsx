@@ -1,10 +1,13 @@
 import Stack from "@mui/material/Stack";
 import FiberManualRecordRoundedIcon from "@mui/icons-material/FiberManualRecordRounded";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, styled } from "@mui/material";
 import { Link } from "react-router-dom";
 import { theme } from "../../../app/ThemeProvider/theme";
 import CommentIcon from "../Icons/CommentIcon";
-import { StyledButtonMobile } from "../../../pages/Login/MobileLogin";
+import { typographyMobile } from "../../config/typography";
+import ConfirmDialog from "../ConfirmDialog";
+import { useEffect, useState } from "react";
+import { getTime, setTime, stopTime } from "../../hooks/useTime";
 
 interface TaskCardProps {
   title: string;
@@ -16,6 +19,11 @@ interface TaskCardProps {
   taskNumber?: number;
 }
 
+const TypographyH1Mobile = styled(Typography)({
+  ...typographyMobile.h1,
+  marginBottom: "1rem",
+  width: "13.9375rem",
+});
 
 const TaskCard = ({
   time,
@@ -26,13 +34,42 @@ const TaskCard = ({
   openTaskList,
   taskNumber,
 }: TaskCardProps) => {
+  const [wastedTime, setWastedTime] = useState<string>("00:00");
+  const [isStarted, setIsStarted] = useState<boolean>(false);
+
+  const handleStartTask = () => {
+    setTime();
+    setIsStarted(true);
+  }
+
+  const handleStopTask = () => {
+    stopTime();
+    setIsStarted(false);
+  }
+
+  useEffect(() => {
+    const startTime = getTime();
+    if (startTime) {
+      setIsStarted(true);
+      const currentTime = Date.now();
+      const deltaHours = Math.floor(
+        ((currentTime - startTime) / (1000 * 3600)) % 24
+      );
+      const deltaMinutes = Math.floor(
+        ((currentTime - startTime) / (1000 * 60)) % 24
+      );
+      setWastedTime(
+        `${deltaHours < 10 ? `0${deltaHours}` : deltaHours}:${
+          deltaMinutes < 10 ? `0${deltaMinutes}` : deltaMinutes
+        }`
+      );
+    }
+  }, []);
+
   return (
     <Stack>
       {taskNumber ? (
-        <Typography
-          variant="h4"
-          marginBottom={"1rem"}
-        >{`Задача № ${taskNumber}`}</Typography>
+        <TypographyH1Mobile>{`Задача № ${taskNumber}`}</TypographyH1Mobile>
       ) : null}
       <Stack direction="row">
         <Stack direction="row">
@@ -93,19 +130,21 @@ const TaskCard = ({
       >
         {address}
       </Typography>
-      {comment ?? (
-        <Stack
-          direction="row"
-          sx={{
-            background: theme.palette.grey[300],
-            padding: "0.5rem",
-            borderRadius: " 0.5rem",
-          }}
-        >
-          <CommentIcon />
-          <Typography sx={{ marginLeft: "0.5rem" }}>{comment}</Typography>
-        </Stack>
-      )}
+      <Stack
+        direction="row"
+        sx={{
+          background: theme.palette.grey[300],
+          padding: "1rem",
+          borderRadius: "0.5rem",
+          minHeight: "6rem",
+          marginRight: "0.5rem",
+        }}
+      >
+        <CommentIcon />
+        <Typography sx={{ marginLeft: "0.5rem" }}>
+          {comment ? comment : "Комментарий отсутсвует"}
+        </Typography>
+      </Stack>
       <Link
         style={{
           textDecoration: "none",
@@ -116,9 +155,19 @@ const TaskCard = ({
       >
         Чат с менеджером
       </Link>
-      {!taskNumber ? (
-        <StyledButtonMobile sx={{mt:"1rem"}} variant="outlined">Начать</StyledButtonMobile>
-      ) : null}
+      {!isStarted ? (
+        <ConfirmDialog
+          buttonText="Начать"
+          onConfirmClick={handleStartTask}
+        />
+      ) : (
+        <>
+          <ConfirmDialog
+            buttonText={`Завершить (${wastedTime})`}
+            onConfirmClick={handleStopTask}
+          />
+        </>
+      )}
     </Stack>
   );
 };

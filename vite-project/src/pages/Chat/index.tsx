@@ -1,4 +1,4 @@
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Divider, Typography, styled } from "@mui/material";
 import { Tabs } from "@mui/base/Tabs";
 import { TabsList } from "../../shared/components/Tabs/TabList";
 import { Tab } from "../../shared/components/Tabs/Tab";
@@ -10,26 +10,32 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import { theme } from "../../app/ThemeProvider/theme";
 import { palette } from "../../shared/config/palette";
+import { typographyMobile } from "../../shared/config/typography";
 
 import Bank from "../../shared/assets/bank.png";
 import Learning from "../../shared/assets/learning.png";
 import Courier from "../../shared/assets/courier.png";
 import { useNavigate } from "react-router-dom";
 
+const TypographyH1Mobile = styled(Typography)({
+  ...typographyMobile.h1,
+  marginBottom: "1rem",
+  width: "13.9375rem",
+});
+
 export default function Chat() {
   const navigate = useNavigate();
   return (
     <Box
-      padding={"3.375rem 1rem 0 1rem"}
+      padding={"0rem 1rem 0 1rem"}
       sx={{ background: palette.background.tertiary }}
       height={"100vh"}
     >
-      <Typography
-        variant="h3"
-        sx={{ fontWeight: 600, paddingTop: "1rem", paddingBottom: "1rem" }}
+      <TypographyH1Mobile
+        sx={{ paddingTop: "1rem" }}
       >
         Чаты
-      </Typography>
+      </TypographyH1Mobile>
       <Tabs style={{ marginBottom: "2rem" }} defaultValue={1}>
         <TabsList>
           <Tab value={1}>Открытые запросы</Tab>

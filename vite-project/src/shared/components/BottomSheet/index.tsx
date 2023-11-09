@@ -7,8 +7,8 @@ import DropListIcon from "../Icons/DragbleDropDownIcon";
 import TaskCorusel from "../TasksCorusel";
 
 const StyledDrawer = styled(Drawer)({
-  marginTop: "430px",
-  height: "200%",
+  marginTop: "100%",
+  height: "100%",
   width: "100%",
   transition: "transform 0.5s",
   transform: "translateY(0%)",
@@ -29,16 +29,19 @@ function BottomSheet({ openTaskList }: { openTaskList: () => void }) {
   const [currentY, setCurrentY] = useState(0);
   const drawerRef = useRef<HTMLDivElement | null>(null);
 
-  const handleTouchStart = (e: any) => {
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     setStartY(e.touches[0].clientY);
     setCurrentY(e.touches[0].clientY);
   };
 
-  const handleTouchMove = (e: any) => {
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
     setCurrentY(e.touches[0].clientY);
     const deltaY = currentY - startY;
 
-    if (deltaY > 400 || deltaY < 0) {
+    if (
+      deltaY > document.body.clientHeight / 2 - 120 ||
+      deltaY < document.body.clientHeight / 3 - 410
+    ) {
       return;
     }
     if (drawerRef.current) {

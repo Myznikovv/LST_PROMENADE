@@ -9,6 +9,7 @@ import {
 import { Divider, Typography, styled } from "@mui/material";
 import { theme } from "../../app/ThemeProvider/theme";
 import { Tabs } from "@mui/base/Tabs";
+import { typographyMobile } from "../../shared/config/typography";
 
 import BottomSheet from "../../shared/components/BottomSheet";
 import { useState } from "react";
@@ -64,8 +65,14 @@ const tasks = [
 
 const StyledButtonGroup = styled(Box)({
   position: "absolute",
-  top: 50,
+  top: 25,
   left: 16,
+});
+
+const TypographyH1Mobile = styled(Typography)({
+  ...typographyMobile.h1,
+  marginBottom: "1rem",
+  width: "13.9375rem",
 });
 
 const ModalStyles = styled(Box)({
@@ -135,24 +142,26 @@ export default function Tasks() {
 
       {isOpenTasksList && (
         <ModalStyles>
-          <Box padding={"4.38rem 1rem 0 1rem"}>
-            <ArrowBackIosNewRoundedIcon
-              onClick={closeModal}
-              sx={{
-                marginBottom: "1rem",
-              }}
-            />
+          <Box padding={"1rem 1rem 0 1rem"}>
+            <Box>
+              <ArrowBackIosNewRoundedIcon
+                onClick={closeModal}
+                sx={{
+                  marginBottom: "0.5rem",
+                }}
+              />
 
-            <Typography marginBottom={"1rem"} variant="h3">
-              Задачи
-            </Typography>
+              <TypographyH1Mobile>
+                Задачи
+              </TypographyH1Mobile>
 
-            <Tabs style={{ marginBottom: "2rem" }} defaultValue={1}>
-              <TabsList>
-                <Tab value={1}>Сегодня, 4 ноября</Tab>
-                <Tab value={2}>Завтра, 5 ноября</Tab>
-              </TabsList>
-            </Tabs>
+              <Tabs style={{ marginBottom: "2rem" }} defaultValue={1}>
+                <TabsList>
+                  <Tab value={1}>Сегодня, 4 ноября</Tab>
+                  <Tab value={2}>Завтра, 5 ноября</Tab>
+                </TabsList>
+              </Tabs>
+            </Box>
 
             <BottomBlock>
               {tasks.map((step) => (

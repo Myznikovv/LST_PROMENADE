@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 const ChatHeader = styled(Box)({
   width: "100%",
   position: "fixed",
-  paddingTop: "3.38rem",
+  paddingTop: "1.5rem",
   background: theme.palette.secondary.main,
   //   height: "5.06rem",
   top: 0,
@@ -64,7 +64,7 @@ const DialogChat = () => {
         </Stack>
       </ChatHeader>
 
-      <Box sx={{ padding: "0.5rem 1rem ", marginTop: "8.44rem" }}>
+      <Box sx={{ padding: "0.5rem 1rem", marginTop: "6rem" }}>
         <ChartLayout />
       </Box>
     </Box>
