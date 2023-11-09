@@ -32,7 +32,7 @@ const ButtonStyled = styled(Button)({
   position: "absolute",
   top: "2rem",
   right: "0.5rem",
-  padding: "0.5rem 0"
+  padding: "0.5rem 0",
 });
 
 const TypographyH1Styled = styled(Typography)({
@@ -73,7 +73,11 @@ export default function MobileProfile() {
         >
           <Box component="img" src="/images/profile.png" />
           <TypographyH1Styled>Данила</TypographyH1Styled>
-          <BadgeStyled badgeContent="Мидл-специалист" status="warning" />
+          <BadgeStyled
+            badgeContent="Мидл-специалист"
+            status="warning"
+            isIcon={false}
+          />
         </Box>
         <Box
           className="KPI Card"

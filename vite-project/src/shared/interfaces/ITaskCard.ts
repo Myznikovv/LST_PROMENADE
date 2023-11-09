@@ -1,9 +1,10 @@
 export interface ITaskCard {
   id: number;
   taskNumber: number;
-  priority: string;
+  priority: "Высокий" | "Низкий";
   time: string;
   title: string;
   address: string;
   comment: string;
+  employee: string;
 }

@@ -40,12 +40,12 @@ const TaskCard = ({
   const handleStartTask = () => {
     setTime();
     setIsStarted(true);
-  }
+  };
 
   const handleStopTask = () => {
     stopTime();
     setIsStarted(false);
-  }
+  };
 
   useEffect(() => {
     const startTime = getTime();
@@ -156,10 +156,7 @@ const TaskCard = ({
         Чат с менеджером
       </Link>
       {!isStarted ? (
-        <ConfirmDialog
-          buttonText="Начать"
-          onConfirmClick={handleStartTask}
-        />
+        <ConfirmDialog buttonText="Начать" onConfirmClick={handleStartTask} />
       ) : (
         <>
           <ConfirmDialog

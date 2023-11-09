@@ -29,7 +29,7 @@ const GridBoxRow1 = styled(Box)({
 const GridBoxRow2 = styled(Box)({
   display: "grid",
   gridTemplateColumns: "2fr 1fr",
-})
+});
 
 const data = [
   {
@@ -191,8 +191,10 @@ const DashboardPage = () => {
                   data,
                   arcLabel: (item) => `${item.value}`,
                   arcLabelMinAngle: 45,
-                  innerRadius: 40,
-                  outerRadius: 80,
+                  innerRadius: 110,
+                  outerRadius: 160,
+                  cy: 300,
+                  cx: (document.body.clientWidth - 181) / 8,
                 },
               ]}
               sx={{
@@ -204,7 +206,7 @@ const DashboardPage = () => {
               slotProps={{
                 legend: {
                   direction: "column",
-                  position: { vertical: "bottom", horizontal: "left" },
+                  position: { vertical: "top", horizontal: "left" },
                   padding: 10,
                 },
               }}

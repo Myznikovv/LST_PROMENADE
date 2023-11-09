@@ -1,4 +1,4 @@
-import { ICourse } from "./interfaces/ICourse";
+import { ICourse } from "./interfaces/ICourse.ts";
 
 export const coursesDummy: ICourse[] = [
   {
@@ -49,7 +49,7 @@ export const coursesDummy: ICourse[] = [
       "Использование различных инструментов для ускорения процесса выдачи карт",
       "Работа с различными типами карт и особенности их выдачи",
       "Решение проблемных ситуаций при выдаче карт",
-      "Экзамен"
+      "Экзамен",
     ],
   },
 ];
