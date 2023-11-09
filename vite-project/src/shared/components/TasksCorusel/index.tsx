@@ -6,49 +6,7 @@ import MobileStepper from "@mui/material/MobileStepper";
 import { theme } from "../../../app/ThemeProvider/theme";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
-import { ITaskCard } from "../../interfaces/ITaskCard";
-
-const tasks = [
-  {
-    id: 1,
-    taskNumber: 1,
-    priority: "Высокий",
-    time: "09:00-12:00",
-    title: "Выезд на точку для стимулирования выдач",
-    address: "ул. им. Героя Аверкиева А.А., д. 8/1 к. мая, кв. 268",
-    comment:
-      "Необходимо связаться с digital-отделом после выполнения задачи для проверки нового функционала",
-  },
-  {
-    id: 2,
-    taskNumber: 2,
-    priority: "Низкий",
-    time: "12:30-15:30 ",
-    title: "Доставка карт и материалов",
-    address: "ул. Восточно-Кругликовская, д. 64/2",
-    comment: "",
-  },
-  {
-    id: 3,
-    taskNumber: 3,
-    priority: "Высокий",
-    time: "09:00-12:00",
-    title: "Выезд на точку для стимулирования выдач",
-    address: "ул. им. Героя Аверкиева А.А., д. 8/1 к. мая, кв. 268",
-    comment:
-      "Необходимо связаться с digital-отделом после выполнения задачи для проверки нового функционала",
-  },
-  {
-    id: 4,
-    taskNumber: 4,
-    priority: "Высокий",
-    time: "09:00-12:00",
-    title: "Выезд на точку для стимулирования выдач",
-    address: "ул. им. Героя Аверкиева А.А., д. 8/1 к. мая, кв. 268",
-    comment:
-      "Необходимо связаться с digital-отделом после выполнения задачи для проверки нового функционала",
-  },
-] as ITaskCard[];
+import { tasks } from "../../tasksDummy";
 
 const TaskCorusel = ({ openTaskList }: { openTaskList: () => void }) => {
   const [activeStep, setActiveStep] = useState(0);
@@ -69,7 +27,7 @@ const TaskCorusel = ({ openTaskList }: { openTaskList: () => void }) => {
             activeStep={activeStep}
             backButton={undefined}
             nextButton={undefined}
-            style={{ margin: "1rem 0", borderRadius:"2rem" }}
+            style={{ margin: "1rem 0", borderRadius: "2rem" }}
           />
           <Box width={"100%"}>
             <SwipeableViews

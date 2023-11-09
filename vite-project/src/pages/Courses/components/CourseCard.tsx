@@ -18,7 +18,7 @@ const TypographyTitleCard = styled(Typography)({
 const TypographyBody = styled(Typography)({
   ...typographyMobile.body1,
   marginBottom: "1.5rem",
-  paddingRight: "1rem"
+  paddingRight: "1rem",
 });
 
 const TypographyTitleCaption = styled(Typography)({
@@ -85,6 +85,7 @@ export default function CourseCard({
           </TypographyTitleCaption>
           {cardSize === "small" && (
             <BadgeStyled
+              isIcon={false}
               badgeContent={`${course.courseCompleteness || 0}%`}
               status={
                 course.courseCompleteness < 50

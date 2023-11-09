@@ -31,6 +31,7 @@ const tasks = [
     address: "ул. им. Героя Аверкиева А.А., д. 8/1 к. мая, кв. 268",
     comment:
       "Необходимо связаться с digital-отделом после выполнения задачи для проверки нового функционала",
+    employee: "Евдокимов Д.Т.",
   },
   {
     id: 2,
@@ -40,6 +41,7 @@ const tasks = [
     title: "Доставка карт и материалов",
     address: "ул. Восточно-Кругликовская, д. 64/2",
     comment: "",
+    employee: "Евдокимов Д.Т.",
   },
   {
     id: 3,
@@ -50,6 +52,7 @@ const tasks = [
     address: "ул. им. Героя Аверкиева А.А., д. 8/1 к. мая, кв. 268",
     comment:
       "Необходимо связаться с digital-отделом после выполнения задачи для проверки нового функционала",
+    employee: "Евдокимов Д.Т.",
   },
   {
     id: 4,
@@ -60,6 +63,7 @@ const tasks = [
     address: "ул. им. Героя Аверкиева А.А., д. 8/1 к. мая, кв. 268",
     comment:
       "Необходимо связаться с digital-отделом после выполнения задачи для проверки нового функционала",
+    employee: "Евдокимов Д.Т.",
   },
 ] as ITaskCard[];
 
@@ -151,9 +155,7 @@ export default function Tasks() {
                 }}
               />
 
-              <TypographyH1Mobile>
-                Задачи
-              </TypographyH1Mobile>
+              <TypographyH1Mobile>Задачи</TypographyH1Mobile>
 
               <Tabs style={{ marginBottom: "2rem" }} defaultValue={1}>
                 <TabsList>
