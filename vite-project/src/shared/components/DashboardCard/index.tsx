@@ -19,15 +19,14 @@ export const DashboardCard = ({
 }: DasboardCardProps) => {
   return (
     <Stack
-      direction="row"
+      direction="column"
       sx={{
         background: theme.palette.background.paper,
         padding: "1.25rem",
         borderRadius: "1.25rem",
-        marginRight:"1.25rem"
       }}
     >
-      <Box>
+      <Box display={"flex"} justifyContent={"space-between"}>
         <Typography
           sx={{
             ...typographyDesktop.h1,
@@ -36,18 +35,17 @@ export const DashboardCard = ({
         >
           {count}
         </Typography>
-        <Typography sx={{ ...typographyDesktop.body1, marginTop: "0.62rem" }}>
-          {title}
+        <Typography
+          sx={{
+            ...typographyDesktop.caption,
+            color: "#BDBDBD",
+          }}
+        >
+          {date}
         </Typography>
       </Box>
-      <Typography
-        sx={{
-          ...typographyDesktop.caption,
-          color: "#BDBDBD",
-          marginLeft: "2.13rem",
-        }}
-      >
-        {date}
+      <Typography sx={{ ...typographyDesktop.body1, marginTop: "0.62rem" }}>
+        {title}
       </Typography>
     </Stack>
   );

@@ -20,6 +20,17 @@ const DashboardContent = styled(Box)({
   marginTop: "2.5rem",
 });
 
+const GridBoxRow1 = styled(Box)({
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr 1fr",
+  columnGap: "1.5rem",
+});
+
+const GridBoxRow2 = styled(Box)({
+  display: "grid",
+  gridTemplateColumns: "2fr 1fr",
+})
+
 const data = [
   {
     label: "Выезд на точку для стимулирования продаж",
@@ -31,7 +42,6 @@ const data = [
 ];
 
 const DashboardPage = () => {
-
   return (
     <Box>
       <Stack direction="row" justifyContent={"space-between"}>
@@ -49,7 +59,7 @@ const DashboardPage = () => {
         </Button>
       </Stack>
       <DashboardContent>
-        <Stack direction="row">
+        <GridBoxRow1>
           <DashboardCard
             title="Задач запланировано"
             count={7}
@@ -67,13 +77,13 @@ const DashboardPage = () => {
             date="07.11.23"
             color="#2F9461"
           />
-        </Stack>
-        <Stack direction="row">
+        </GridBoxRow1>
+        <GridBoxRow2>
           <Box
             padding={"1.25rem"}
             sx={{
               background: theme.palette.background.paper,
-              width: "42rem",
+              width: "98%",
               marginTop: "1.25rem",
               borderRadius: "1.25rem",
               marginRight: "1.25px",
@@ -155,7 +165,6 @@ const DashboardPage = () => {
                   // label: "Задачи",
                 },
               ]}
-              width={700}
               height={300}
             />
           </Box>
@@ -163,9 +172,8 @@ const DashboardPage = () => {
             padding={"1.25rem"}
             sx={{
               background: theme.palette.background.paper,
-              width: "20.6rem",
+              width: "100%",
               marginTop: "1.25rem",
-              marginLeft: "1.25rem",
               borderRadius: "1.25rem",
             }}
           >
@@ -196,19 +204,17 @@ const DashboardPage = () => {
               slotProps={{
                 legend: {
                   direction: "column",
-                  position: { vertical: "top", horizontal: "middle" },
-                  padding: 40,
+                  position: { vertical: "bottom", horizontal: "left" },
+                  padding: 10,
                 },
               }}
               height={300}
-              width={400}
             />
           </Box>
-        </Stack>
+        </GridBoxRow2>
       </DashboardContent>
     </Box>
   );
-
 };
 
 export default DashboardPage;
