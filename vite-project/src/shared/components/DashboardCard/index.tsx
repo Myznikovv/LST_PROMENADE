@@ -1,5 +1,5 @@
 import Stack from "@mui/material/Stack";
-import { theme } from "../../../app/ThemeProvider/theme";
+import { theme } from "../../../app/providers/ThemeProvider/theme";
 import Box from "@mui/material/Box";
 import { typographyDesktop } from "../../config/typography";
 import Typography from "@mui/material/Typography";

@@ -6,7 +6,7 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import Button from "@mui/material/Button";
 //пока что не понял как полность кастомизировать палитру из-за этого пока что так оставил
 import { palette } from "../../shared/config/palette";
-import { theme } from "../../app/ThemeProvider/theme";
+import { theme } from "../../app/providers/ThemeProvider/theme";
 import { typographyDesktop } from "../../shared/config/typography";
 
 import SovcomBankLogo from "../../shared/components/Icons/SovcomBankLogo";

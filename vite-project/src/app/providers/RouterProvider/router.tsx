@@ -1,21 +1,21 @@
 import { createBrowserRouter } from "react-router-dom";
-import { EErrorTexts } from "../../shared/enums/EErrorTexts";
+import { EErrorTexts } from "../../../shared/enums/EErrorTexts.tsx";
 
-import LoginPage from "../../pages/Login";
-import Tasks from "../../pages/Tasks";
-import Chat from "../../pages/Chat";
-import Courses from "../../pages/Courses";
-import RootLayout from "../../pages/RootLayout";
-import Error from "../../pages/Error";
-import Profile from "../../pages/Profile";
-import DashboardPage from "../../pages/Dashboard/index.tsx";
-import ManagerChatPage from "../../pages/Chat/ManagerChatPage/index.tsx";
-import DepartmentsPage from "../../pages/DepartmentPage/index.tsx";
-import EmployeePage from "../../pages/EmployeePage/index.tsx";
-import ManagerTaskPage from "../../pages/Tasks/ManagerTaskPage/index.tsx";
+import LoginPage from "../../../pages/Login/index.tsx";
+import Tasks from "../../../pages/Tasks/index.tsx";
+import Chat from "../../../pages/Chat/index.tsx";
+import Courses from "../../../pages/Courses/index.tsx";
+import RootLayout from "../../../pages/RootLayout/index.tsx";
+import Error from "../../../pages/Error/index.tsx";
+import Profile from "../../../pages/Profile/index.tsx";
+import DashboardPage from "../../../pages/Dashboard/index.tsx";
+import ManagerChatPage from "../../../pages/Chat/ManagerChatPage/index.tsx";
+import DepartmentsPage from "../../../pages/DepartmentPage/index.tsx";
+import EmployeePage from "../../../pages/EmployeePage/index.tsx";
+import ManagerTaskPage from "../../../pages/Tasks/ManagerTaskPage/index.tsx";
 
-import DialogChat from "../../pages/Chat/DialogChat.tsx";
-import Course from "../../pages/Courses/Course/index.tsx";
+import DialogChat from "../../../pages/Chat/DialogChat.tsx/index.tsx";
+import Course from "../../../pages/Courses/Course/index.tsx";
 
 export const router = createBrowserRouter([
   {

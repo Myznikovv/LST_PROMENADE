@@ -2,7 +2,7 @@ import Stack from "@mui/material/Stack";
 import FiberManualRecordRoundedIcon from "@mui/icons-material/FiberManualRecordRounded";
 import { Box, Typography, styled } from "@mui/material";
 import { Link } from "react-router-dom";
-import { theme } from "../../../app/ThemeProvider/theme";
+import { theme } from "../../../app/providers/ThemeProvider/theme";
 import CommentIcon from "../Icons/CommentIcon";
 import { typographyMobile } from "../../config/typography";
 import ConfirmDialog from "../ConfirmDialog";

@@ -7,7 +7,7 @@ import {
 } from "@pbe/react-yandex-maps";
 
 import { Divider, Typography, styled } from "@mui/material";
-import { theme } from "../../app/ThemeProvider/theme";
+import { theme } from "../../app/providers/ThemeProvider/theme";
 import { Tabs } from "@mui/base/Tabs";
 import { typographyMobile } from "../../shared/config/typography";
 

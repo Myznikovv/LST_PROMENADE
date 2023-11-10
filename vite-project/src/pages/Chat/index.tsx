@@ -8,7 +8,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-import { theme } from "../../app/ThemeProvider/theme";
+import { theme } from "../../app/providers/ThemeProvider/theme";
 import { palette } from "../../shared/config/palette";
 import { typographyMobile } from "../../shared/config/typography";
 

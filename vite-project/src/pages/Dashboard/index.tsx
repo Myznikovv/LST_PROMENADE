@@ -7,7 +7,7 @@ import { typographyDesktop } from "../../shared/config/typography";
 import { DashboardCard } from "../../shared/components/DashboardCard";
 
 import { BarChart } from "@mui/x-charts/BarChart";
-import { theme } from "../../app/ThemeProvider/theme";
+import { theme } from "../../app/providers/ThemeProvider/theme";
 
 import FiberManualRecordRoundedIcon from "@mui/icons-material/FiberManualRecordRounded";
 import { PieChart, pieArcLabelClasses } from "@mui/x-charts/PieChart";

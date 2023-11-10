@@ -1,5 +1,5 @@
-import AppRouterProvider from "./RouterProvider";
-import AppThemeProvider from "./ThemeProvider";
+import AppRouterProvider from "./providers/RouterProvider";
+import AppThemeProvider from "./providers/ThemeProvider";
 
 function App() {
   return (
