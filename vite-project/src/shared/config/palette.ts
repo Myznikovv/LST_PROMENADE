@@ -39,6 +39,10 @@ const badgeStatus = {
     text: "#BDBDBD",
     background: "#FFF",
   },
+  info: {
+    text: "#3657CD",
+    background: "#F0F1FFE5",
+  },
 };
 
 export const palette = {

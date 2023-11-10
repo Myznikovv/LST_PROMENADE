@@ -1,14 +1,13 @@
 import { Button, Typography, styled } from "@mui/material";
 import Box from "@mui/material/Box";
 import { typographyDesktop } from "../../config/typography";
-import { ITableData, tableDataTasks } from "./components/TableData";
+import { ITableData } from "./components/TableData";
 import BadgeStyled from "../BadgeStyled";
 
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import React from "react";
 
 const TypographyCaption = styled(Typography)({
   ...typographyDesktop.caption,

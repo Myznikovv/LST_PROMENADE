@@ -42,39 +42,77 @@ export interface ITableData {
 
 export const tableDataAddresses = [
   {
-    number: 43,
+    number: "43",
     address: "ул. им. Героя Аверкиева А.А., д. 8/1 к. мая, кв. 268",
     date: "Давно",
     isDelivered: "Да",
-    amountDays: 0,
-    amountApproved: 3,
-    amountCards: 4,
+    amountDays: "0",
+    amountApproved: "3",
+    amountCards: "4",
   },
   {
-    number: 13,
+    number: "13",
     address: "ул. Уральская, д. 162",
     date: "Вчера",
     isDelivered: "Нет",
-    amountDays: 15,
-    amountApproved: 22,
-    amountCards: 16,
+    amountDays: "15",
+    amountApproved: "22",
+    amountCards: "16",
   },
   {
-    number: 43,
+    number: "44",
     address: "ул. им. Героя Аверкиева А.А., д. 8/1 к. мая, кв. 268",
     date: "Давно",
     isDelivered: "Да",
-    amountDays: 0,
-    amountApproved: 3,
-    amountCards: 4,
+    amountDays: "0",
+    amountApproved: "3",
+    amountCards: "4",
   },
   {
-    number: 43,
+    number: "45",
     address: "ул. им. Героя Аверкиева А.А., д. 8/1 к. мая, кв. 268",
     date: "Давно",
     isDelivered: "Да",
-    amountDays: 0,
-    amountApproved: 3,
-    amountCards: 4,
+    amountDays: "0",
+    amountApproved: "3",
+    amountCards: "4",
   },
 ];
+
+export interface ITableDataAddresses {
+  number: string;
+  address: string;
+  date: string;
+  isDelivered: string;
+  amountDays: string;
+  amountApproved: string;
+  amountCards: string;
+}
+
+export const tableDataEmployees = [
+  {
+    number: "1",
+    credential: "Дерягин Никита Владимирович",
+    address: "Краснодар, Красная, д. 139",
+    grade: "Сеньёр",
+  },
+  {
+    number: "2",
+    credential: "Бобылёв Ипполит Альбертович",
+    address: "Краснодар, В.Н. Мачуги, 41",
+    grade: "Мидл",
+  },
+  {
+    number: "3",
+    credential: "Николаев Азарий Платонович",
+    address: "Краснодар, Красных Партизан, 321",
+    grade: "Джун",
+  },
+];
+
+export interface ITableDataEmployees {
+  number: string;
+  credential: string;
+  address: string;
+  grade: string;
+}
