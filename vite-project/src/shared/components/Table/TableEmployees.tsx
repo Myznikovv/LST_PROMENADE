@@ -2,7 +2,6 @@ import { Box, Button, Typography, styled } from "@mui/material";
 import { typographyDesktop } from "../../config/typography";
 import { ITableDataEmployees } from "./components/TableData";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import BadgeStyled from "../BadgeStyled";
 
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
@@ -31,8 +30,6 @@ export default function TableEmployees({
 }) {
   const [employeesList, setEmployeesList] =
     useState<ITableDataEmployees[]>(additionalEmployees);
-
-  const navigate = useNavigate();
 
   const handleDeleteRow = (id: string) => {
     const employees = employeesList.filter((employee) => {

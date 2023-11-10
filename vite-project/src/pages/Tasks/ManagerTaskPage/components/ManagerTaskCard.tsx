@@ -2,8 +2,6 @@ import Box from "@mui/material/Box";
 import { typographyDesktop } from "../../../../shared/config/typography";
 import { Typography, styled, Button } from "@mui/material";
 import BadgeStyled from "../../../../shared/components/BadgeStyled";
-import CommentIcon from "../../../../shared/components/Icons/CommentIcon";
-import { theme } from "../../../../app/providers/ThemeProvider/theme";
 import { ITaskCard } from "../../../../shared/interfaces/ITaskCard";
 
 const TypographyH3Desktop = styled(Typography)({
@@ -24,6 +22,7 @@ export default function ManagerTaskCard({
   task: ITaskCard;
   size: "big" | "small";
 }) {
+  console.log(size);
   return (
     <Box
       padding={"1.25rem"}

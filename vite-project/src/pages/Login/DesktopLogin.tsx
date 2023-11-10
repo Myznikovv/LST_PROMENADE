@@ -65,7 +65,7 @@ const StyledButtonDesktop = styled(Button)({
 
 export default function DesktopLogin() {
   const navigate = useNavigate();
-  const [error, setError] = useState<boolean>(false);
+  const [error] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
