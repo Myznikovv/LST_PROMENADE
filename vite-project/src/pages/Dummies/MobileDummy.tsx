@@ -14,8 +14,8 @@ const MobileDummy = () => {
           height: "100vh",
           width: "100vw",
           padding: "4.28rem 0 0 1rem",
-          position: "relative",
         }}
+        zIndex={999}
       >
         <Typography sx={{ ...typographyMobile.h1 }}>
           <span style={{ color: theme.palette.primary.main }}>Упс! </span>
@@ -30,24 +30,22 @@ const MobileDummy = () => {
         >
           Авторизуйтесь, используя ноутбук или персовнонаьный компьютер
         </Typography>
-        <Box zIndex={999}>
-          <ArrowIcon sx={{ marginLeft: "18rem" }} />
-        </Box>
-
-        <Box
-          component={"img"}
-          src={Mocup}
-          sx={{
-            width: "auto",
-            height: "25.875rem",
-            bottom: 0,
-            left: 0,
-            right: 0,
-          }}
-          zIndex={0}
-          position={"absolute"}
+        <ArrowIcon
+          sx={{ marginLeft: "18rem", zIndex: "2", position: "absolute" }}
         />
       </Box>
+      <Box
+        sx={{
+          background: `url(${Mocup})`,
+          width: "auto",
+          height: "25.875rem",
+          bottom: 0,
+          left: 0,
+          right: 0,
+        }}
+        position={"absolute"}
+        zIndex={0}
+      />
     </>
   );
 };
