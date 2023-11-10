@@ -3,10 +3,9 @@ import useMediaSize from "../../shared/hooks/useMediaSize";
 import DesktopRootLayout from "./DesktopRootLayout";
 import MobileRootLayout from "./MobileRootLayout";
 
-// import { TPath } from "../../shared/types/TPath";
 
 import { useNavigate } from "react-router-dom";
-import React from "react";
+
 
 export default function RootLayout() {
   const mediaSize = useMediaSize();
