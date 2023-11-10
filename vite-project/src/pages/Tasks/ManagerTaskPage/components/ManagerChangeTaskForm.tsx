@@ -11,6 +11,8 @@ import {
 import { useNavigate } from "react-router-dom";
 import { typographyDesktop } from "../../../../shared/config/typography";
 import { useFormik } from "formik";
+import { ITableData } from "../../../../shared/components/Table/components/TableData";
+import React from "react";
 
 const StyledButton = styled(Button)({
   color: "black",
@@ -38,21 +40,25 @@ const TypographyH1Desktop = styled(Typography)({
   ...typographyDesktop.h1,
 });
 
-export default function ManagerCreateTask({
+export default function ManagerChangeTaskForm({
   onSubmitForm,
+  title,
+  task,
 }: {
-  onSubmitForm: (value: object) => void;
+  onSubmitForm: (value: ITableData) => void;
+  title: string;
+  task?: ITableData;
 }) {
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
-      number: "",
-      name: "",
-      priority: "Средний",
-      level: "",
-      firstCondition: "",
-      secondCondition: "",
-      time: "",
+      type: task ? task.type : 0,
+      name: task ? task.name : "",
+      priority: task ? task.priority : "Средний",
+      employeeLevels: task ? task.employeeLevels : [],
+      firstCondition: task ? task.firstCondition : "",
+      secondCondition: task ? task.secondCondition : "",
+      time: task ? task.time : "",
     },
     onSubmit: (values, { resetForm }) => {
       onSubmitForm(values);
@@ -72,7 +78,7 @@ export default function ManagerCreateTask({
         marginBottom={"3rem"}
         textAlign={"center"}
       >
-        Создание типа задачи
+        {title}
       </TypographyH1Desktop>
       <form onSubmit={formik.handleSubmit}>
         <Box
@@ -81,7 +87,7 @@ export default function ManagerCreateTask({
           justifyContent={"center"}
           alignItems={"center"}
           gap={"1.25rem"}
-          paddingX="25rem"
+          padding={"0 5rem"}
         >
           <Box
             display={"grid"}
@@ -90,9 +96,9 @@ export default function ManagerCreateTask({
             width={"100%"}
           >
             <OutlinedInput
-              id="number"
-              name="number"
-              value={formik.values.number}
+              id="type"
+              name="type"
+              value={formik.values.type}
               onChange={formik.handleChange}
               sx={{ borderRadius: "0.625rem" }}
               placeholder="Номер"
@@ -127,9 +133,9 @@ export default function ManagerCreateTask({
             <OutlinedInput
               sx={{ borderRadius: "0.625rem" }}
               placeholder="Уровень сотрудника"
-              id="level"
-              name="level"
-              value={formik.values.level}
+              id="employeeLevels"
+              name="employeeLevels"
+              value={formik.values.employeeLevels}
               onChange={formik.handleChange}
             />
           </Box>

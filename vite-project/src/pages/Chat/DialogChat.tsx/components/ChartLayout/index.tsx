@@ -1,5 +1,5 @@
 import { Box, Typography, styled } from "@mui/material";
-import { theme } from "../../../../../app/ThemeProvider/theme";
+import { theme } from "../../../../../app/providers/ThemeProvider/theme";
 
 const BubbleContainer = styled(Box)({
   borderRadius: "10px",

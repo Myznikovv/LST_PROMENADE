@@ -7,6 +7,8 @@ import BadgeStyled from "../BadgeStyled";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import React from "react";
 
 const TypographyCaption = styled(Typography)({
   ...typographyDesktop.caption,
@@ -23,17 +25,28 @@ const StyledButton = styled(Button)({
 export default function TableTasks({
   columns,
   additionalTasks,
+  onEdit,
 }: {
   columns: string[];
-  additionalTasks: object[];
+  additionalTasks: ITableData[];
+  onEdit: (value: string) => void;
 }) {
-  const [taskList, setTaskList] = useState<ITableData[]>(tableDataTasks);
+  const [taskList, setTaskList] = useState<ITableData[]>(additionalTasks);
+
+  const navigate = useNavigate();
 
   const handleDeleteRow = (id: number) => {
     const tasks = taskList.filter((task) => {
       return task.type !== id;
     });
     setTaskList(tasks);
+  };
+
+  const handleEditTaskType = (taskTypeId: number) => {
+    navigate({
+      search: `?editTask=${taskTypeId}`,
+    });
+    onEdit(`?editTask=${taskTypeId}`);
   };
 
   return (
@@ -97,7 +110,10 @@ export default function TableTasks({
             <StyledButton onClick={() => handleDeleteRow(task.type)}>
               <DeleteOutlinedIcon />
             </StyledButton>
-            <StyledButton style={{ color: "#3657CD" }}>
+            <StyledButton
+              onClick={() => handleEditTaskType(task.type)}
+              style={{ color: "#3657CD" }}
+            >
               <EditOutlinedIcon />
             </StyledButton>
           </Box>

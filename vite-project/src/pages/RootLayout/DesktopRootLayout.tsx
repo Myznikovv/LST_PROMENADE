@@ -11,7 +11,7 @@ import {
   Typography,
   styled,
 } from "@mui/material";
-import { theme } from "../../app/ThemeProvider/theme";
+
 import SovcomBankLogo from "../../shared/components/Icons/SovcomBankLogo";
 
 import {
@@ -32,9 +32,9 @@ import EmployeeIcon from "../../shared/components/Icons/EmployeeIcon";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 
 import AvatarProfile from "../../shared/assets/Avatar.png";
-
 import { Outlet, useNavigate } from "react-router-dom";
 import DesktopDummy from "../Dummies/DesktopDummy";
+import { theme } from "../../app/providers/ThemeProvider/theme";
 
 const Drawer = styled(Box)`
   position: fixed;

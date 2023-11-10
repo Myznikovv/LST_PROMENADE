@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import { theme } from "../../../app/ThemeProvider/theme";
+import { theme } from "../../../app/providers/ThemeProvider/theme";
 import {
   Avatar,
   ListItemAvatar,

@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { styled } from "@mui/material";
 import Drawer from "@mui/material/Drawer";
-import { theme } from "../../../app/ThemeProvider/theme";
+import { theme } from "../../../app/providers/ThemeProvider/theme";
 import DropListIcon from "../Icons/DragbleDropDownIcon";
 
 import TaskCorusel from "../TasksCorusel";

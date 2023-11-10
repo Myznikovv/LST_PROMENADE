@@ -1,4 +1,4 @@
-import { theme } from "../../../app/ThemeProvider/theme";
+import { theme } from "../../../app/providers/ThemeProvider/theme";
 import { buttonClasses } from "@mui/base/Button";
 import { Tab as BaseTab, tabClasses } from "@mui/base/Tab";
 import { styled } from "@mui/material";

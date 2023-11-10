@@ -3,7 +3,7 @@ import SwipeableViews from "react-swipeable-views";
 import TaskCard from "../TaskCard";
 import { useState } from "react";
 import MobileStepper from "@mui/material/MobileStepper";
-import { theme } from "../../../app/ThemeProvider/theme";
+import { theme } from "../../../app/providers/ThemeProvider/theme";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import { tasks } from "../../tasksDummy";

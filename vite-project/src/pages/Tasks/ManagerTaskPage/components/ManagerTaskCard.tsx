@@ -3,7 +3,7 @@ import { typographyDesktop } from "../../../../shared/config/typography";
 import { Typography, styled, Button } from "@mui/material";
 import BadgeStyled from "../../../../shared/components/BadgeStyled";
 import CommentIcon from "../../../../shared/components/Icons/CommentIcon";
-import { theme } from "../../../../app/ThemeProvider/theme";
+import { theme } from "../../../../app/providers/ThemeProvider/theme";
 import { ITaskCard } from "../../../../shared/interfaces/ITaskCard";
 
 const TypographyH3Desktop = styled(Typography)({

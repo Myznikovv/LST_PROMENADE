@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import { typographyDesktop } from "../../../../shared/config/typography";
 import { styled } from "@mui/material";
 import { useEffect, useState } from "react";
-import { theme } from "../../../../app/ThemeProvider/theme";
+import { theme } from "../../../../app/providers/ThemeProvider/theme";
 import TaskTab from "./TaskTab";
 import BadgeStyled from "../../../../shared/components/BadgeStyled";
 import ManagerTaskCard from "./ManagerTaskCard";
@@ -16,6 +16,7 @@ import { taskColumns } from "../../../../shared/components/Table/components/Colu
 import { DashboardCard } from "../../../../shared/components/DashboardCard";
 import { useNavigate } from "react-router-dom";
 import { ITableData } from "../../../../shared/components/Table/components/TableData";
+import React from "react";
 
 const DashboardContent = styled(Box)({
   display: "grid",
@@ -44,7 +45,7 @@ export default function ManagerTasks({
   additionalTasks,
 }: {
   onCreate: (value: string) => void;
-  additionalTasks: object[];
+  additionalTasks: ITableData[];
 }) {
   const [tabIndex, setTabIndex] = useState<number | string>(1);
   const [dates, setDates] = useState<{
@@ -298,7 +299,11 @@ export default function ManagerTasks({
           </TaskTab>
           <TaskTab value={3}>
             <Box marginBottom="1.25rem">
-              <TableTasks columns={taskColumns} additionalTasks={additionalTasks} />
+              <TableTasks
+                columns={taskColumns}
+                additionalTasks={additionalTasks}
+                onEdit={onCreate}
+              />
             </Box>
           </TaskTab>
         </Tabs>
