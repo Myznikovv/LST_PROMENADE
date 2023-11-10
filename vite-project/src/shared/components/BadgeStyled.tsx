@@ -8,7 +8,7 @@ export default function BadgeStyled({
   isIcon,
 }: {
   badgeContent: string;
-  status: "success" | "warning" | "danger" | "white" | "gray";
+  status: "success" | "warning" | "danger" | "white" | "gray" | "info";
   isIcon: boolean;
 }) {
   return (

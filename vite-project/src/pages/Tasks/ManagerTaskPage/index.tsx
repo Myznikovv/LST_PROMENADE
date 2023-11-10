@@ -7,7 +7,6 @@ import {
   ITableData,
   tableDataTasks,
 } from "../../../shared/components/Table/components/TableData";
-import React from "react";
 
 const ManagerTaskPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();

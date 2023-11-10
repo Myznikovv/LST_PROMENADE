@@ -140,7 +140,7 @@ export default function DesktopRootLayout() {
                   <ListItemText primary={"Чат"} />
                 </ListItemButton>
                 {/*@ts-ignore */}
-                <ListItemButton component={Link} to={"/manager/deparments"}>
+                <ListItemButton component={Link} to={"/manager/departments"}>
                   <ListItemIcon>{<DepartmentIcon />}</ListItemIcon>
                   <ListItemText primary={"Отделения"} />
                 </ListItemButton>

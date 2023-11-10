@@ -12,7 +12,6 @@ import { useNavigate } from "react-router-dom";
 import { typographyDesktop } from "../../../../shared/config/typography";
 import { useFormik } from "formik";
 import { ITableData } from "../../../../shared/components/Table/components/TableData";
-import React from "react";
 
 const StyledButton = styled(Button)({
   color: "black",

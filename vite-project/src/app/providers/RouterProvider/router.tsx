@@ -69,7 +69,7 @@ export const router = createBrowserRouter([
         element: <ManagerChatPage />,
       },
       {
-        path: "/manager/deparments",
+        path: "/manager/departments",
         element: <DepartmentsPage />,
       },
       {
