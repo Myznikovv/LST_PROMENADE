@@ -16,7 +16,6 @@ import { taskColumns } from "../../../../shared/components/Table/components/Colu
 import { DashboardCard } from "../../../../shared/components/DashboardCard";
 import { useNavigate } from "react-router-dom";
 import { ITableData } from "../../../../shared/components/Table/components/TableData";
-import React from "react";
 
 const DashboardContent = styled(Box)({
   display: "grid",

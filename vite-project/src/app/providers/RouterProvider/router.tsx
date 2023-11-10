@@ -61,7 +61,11 @@ export const router = createBrowserRouter([
         element: <ManagerTaskPage />,
       },
       {
-        path: "/manager/chat",
+        path: "/manager/chats",
+        element: <ManagerChatPage />,
+      },
+      {
+        path: "/manager/chats/:chatId",
         element: <ManagerChatPage />,
       },
       {

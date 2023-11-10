@@ -135,7 +135,7 @@ export default function DesktopRootLayout() {
                   <ListItemText primary={"Задачи"} />
                 </ListItemButton>
                 {/*@ts-ignore */}
-                <ListItemButton component={Link} to={"/manager/chat"}>
+                <ListItemButton component={Link} to={"/manager/chats"}>
                   <ListItemIcon>{<ChatIcon />}</ListItemIcon>
                   <ListItemText primary={"Чат"} />
                 </ListItemButton>

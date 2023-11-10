@@ -1,4 +1,4 @@
-import React from "react";
+
 import { typographyDesktop } from "../../shared/config/typography";
 import Typography from "@mui/material/Typography";
 

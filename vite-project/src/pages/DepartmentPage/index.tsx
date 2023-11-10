@@ -1,5 +1,5 @@
 import { Button, Stack, Typography } from "@mui/material";
-import React from "react";
+
 import { typographyDesktop } from "../../shared/config/typography";
 
 const DepartmentsPage = () => {
