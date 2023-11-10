@@ -13,12 +13,6 @@ const ManagerTaskPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [tasks, setTasks] = useState<ITableData[]>(tableDataTasks);
 
-  console.log(tasks);
-
-  console.log(
-    tasks.find((task) => task.type === Number(searchParams.get("editTask")))
-  );
-
   return (
     <Box>
       {searchParams.get("create") === "true" || searchParams.get("editTask") ? (
