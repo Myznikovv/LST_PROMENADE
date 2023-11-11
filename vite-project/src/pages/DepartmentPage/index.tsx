@@ -1,25 +1,25 @@
 import { useEffect, useState } from "react";
-import { ITableDataAddresses } from "../../shared/components/Table/components/TableData";
+import {
+  ITableDataAddresses,
+  tableDataAddresses,
+} from "../../shared/components/Table/components/TableData";
 import { useSearchParams } from "react-router-dom";
 import Departments from "./components/Departments";
 import DepartmentChangeForm from "./components/DepartmentChangeForm";
-import PointService from "../../shared/services/pointService";
+
 
 const DepartmentsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [departmentList, setDepartmentList] = useState<ITableDataAddresses[]>(
-    []
-  );
+  const [departmentList, setDepartmentList] =
+    useState<ITableDataAddresses[]>(tableDataAddresses);
 
-  const getPoints = async () => {
-    const points = await PointService.getPoints();
-    console.log(points);
-    setDepartmentList(points);
-  };
+  // const getPoints = async () => {
+  //   const points = await PointService.getPoints();
+  // };
 
-  useEffect(() => {
-    getPoints();
-  }, []);
+  // useEffect(() => {
+  //   getPoints();
+  // }, []);
   const handleAddNewAddress = (values: ITableDataAddresses) => {
     setDepartmentList((prevValues) => [...prevValues, values]);
   };
