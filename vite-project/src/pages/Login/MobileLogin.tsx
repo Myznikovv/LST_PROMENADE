@@ -78,7 +78,7 @@ const StyledButton = styled(Button)({
 
 const LoginSchema = Yup.object<ILogin>({
   email: Yup.string()
-    .email("Введите почту - example@mail.ru")
+    .email("Введите почту - ivanov.a.f@sovkom.bank")
     .min(5, "Почта не может быть меньше 5 символов")
     .required("Почта обязательна"),
   password: Yup.string()
@@ -94,8 +94,9 @@ export default function MobileLogin() {
   );
 
   const fetchData = async ({ email, password }: ILogin) => {
-    const resp = await LoginService.login(email, password);
-    console.log(resp);
+    await LoginService.login(email, password)
+      .then(() => navigate("/tasks"))
+      .catch((error) => alert(error));
   };
 
   const handleOnChange = () => {
@@ -110,14 +111,13 @@ export default function MobileLogin() {
 
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: "ivanov.a.f@sovkom.bank",
+      password: "testpass48",
     },
     validationSchema: LoginSchema,
     onSubmit: (values, { resetForm }) => {
       setData(values);
       resetForm();
-      navigate("/tasks");
       fetchData(values);
     },
   });
