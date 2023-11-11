@@ -11,6 +11,9 @@ import { theme } from "../../app/providers/ThemeProvider/theme";
 
 import FiberManualRecordRoundedIcon from "@mui/icons-material/FiberManualRecordRounded";
 import { PieChart, pieArcLabelClasses } from "@mui/x-charts/PieChart";
+import axiosInstance from "../../shared/api/axiosInstance";
+import { useEffect } from "react";
+import PointService from "../../shared/services/pointService";
 
 const StyledTypography = styled(Typography)({
   ...typographyDesktop.h1,
@@ -42,6 +45,14 @@ const data = [
 ];
 
 const DashboardPage = () => {
+  const getData = async () => {
+    const points = await PointService.getPoints();
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <Box>
       <Stack direction="row" justifyContent={"space-between"}>
