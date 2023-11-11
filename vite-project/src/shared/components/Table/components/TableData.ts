@@ -42,7 +42,7 @@ export interface ITableData {
 
 export const tableDataAddresses = [
   {
-    number: "43",
+    id: 43,
     address: "ул. им. Героя Аверкиева А.А., д. 8/1 к. мая, кв. 268",
     date: "Давно",
     isDelivered: "Да",
@@ -51,16 +51,16 @@ export const tableDataAddresses = [
     amountCards: "4",
   },
   {
-    number: "13",
+    id: 13,
     address: "ул. Уральская, д. 162",
     date: "Вчера",
-    isDelivered: "Нет",
-    amountDays: "15",
+    isDelivered: "Да",
+    amountDays: 15,
     amountApproved: "22",
     amountCards: "16",
   },
   {
-    number: "44",
+    number: 4,
     address: "ул. им. Героя Аверкиева А.А., д. 8/1 к. мая, кв. 268",
     date: "Давно",
     isDelivered: "Да",
@@ -69,7 +69,7 @@ export const tableDataAddresses = [
     amountCards: "4",
   },
   {
-    number: "45",
+    number: 45,
     address: "ул. им. Героя Аверкиева А.А., д. 8/1 к. мая, кв. 268",
     date: "Давно",
     isDelivered: "Да",
@@ -80,18 +80,18 @@ export const tableDataAddresses = [
 ];
 
 export interface ITableDataAddresses {
-  number: string;
+  id: number;
   address: string;
-  date: string;
-  isDelivered: string;
-  amountDays: string;
-  amountApproved: string;
-  amountCards: string;
+  when_connected: string;
+  is_delivered: string;
+  days_passed: number;
+  approved_amount: number;
+  given_amount: number;
 }
 
 export const tableDataEmployees = [
   {
-    number: "1",
+    id: "1",
     credential: "Дерягин Никита Владимирович",
     address: "Краснодар, Красная, д. 139",
     grade: "Сеньёр",

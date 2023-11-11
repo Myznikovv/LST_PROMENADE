@@ -1,17 +1,30 @@
-import axiosInstance from "../api/axiosInstance";
+import httpClient from "../api/httpClient";
 import IWorker from "../interfaces/IWorker";
 
 async function getWorkers(): Promise<IWorker[]> {
-  return axiosInstance.get(`/workers/get`);
+  return httpClient.get(`/workers/get`);
 }
 
 async function getWorkersById(id: number): Promise<IWorker> {
-  return axiosInstance.get(`/workers/get/${id}`);
+  return httpClient.get(`/workers/get/${id}`);
+}
+
+async function loginWorkers(
+  login: string,
+  password: string
+): Promise<{ id: number }> {
+  return httpClient.post("/workers/login", {
+    body: {
+      login,
+      password,
+    },
+  });
 }
 
 const WorkersService = {
   getWorkersById,
   getWorkers,
+  loginWorkers,
 };
 
 export default WorkersService;

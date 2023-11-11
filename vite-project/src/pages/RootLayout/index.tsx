@@ -14,6 +14,7 @@ export default function RootLayout() {
 
   const permissionRole = getPermission(); //это временная заглушка по пермиссии для пользователя
 
+
   useEffect(() => {
     permissionRole === "visitor"
       ? navigate("/tasks")

@@ -100,6 +100,7 @@ const Link = React.forwardRef<HTMLAnchorElement, RouterLinkProps>(
 );
 
 export default function DesktopRootLayout() {
+
   const permissionRole = getPermission(); //это временная заглушка по пермиссии для пользователя
   const navigate = useNavigate();
 

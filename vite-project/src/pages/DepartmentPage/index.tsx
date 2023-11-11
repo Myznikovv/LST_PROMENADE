@@ -1,17 +1,25 @@
-import { useState } from "react";
-import {
-  ITableDataAddresses,
-  tableDataAddresses,
-} from "../../shared/components/Table/components/TableData";
+import { useEffect, useState } from "react";
+import { ITableDataAddresses } from "../../shared/components/Table/components/TableData";
 import { useSearchParams } from "react-router-dom";
 import Departments from "./components/Departments";
 import DepartmentChangeForm from "./components/DepartmentChangeForm";
+import PointService from "../../shared/services/pointService";
 
 const DepartmentsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [departmentList, setDepartmentList] =
-    useState<ITableDataAddresses[]>(tableDataAddresses);
+  const [departmentList, setDepartmentList] = useState<ITableDataAddresses[]>(
+    []
+  );
 
+  const getPoints = async () => {
+    const points = await PointService.getPoints();
+    console.log(points);
+    setDepartmentList(points);
+  };
+
+  useEffect(() => {
+    getPoints();
+  }, []);
   const handleAddNewAddress = (values: ITableDataAddresses) => {
     setDepartmentList((prevValues) => [...prevValues, values]);
   };
@@ -25,7 +33,7 @@ const DepartmentsPage = () => {
           type={searchParams.get("editDepartment") ? "edit" : "create"}
           department={departmentList.find(
             (department) =>
-              department.number === searchParams.get("editDepartment")
+              department.id.toString() === searchParams.get("editDepartment")
           )}
         />
       ) : (
