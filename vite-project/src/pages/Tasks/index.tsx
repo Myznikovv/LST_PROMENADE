@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import Box from "@mui/material/Box";
 import {
   YMaps,
@@ -6,8 +8,6 @@ import {
   ZoomControl,
   TrafficControl,
   Placemark,
-  RoutePanel,
-  Polyline,
 } from "react-yandex-maps";
 
 import { Divider, Typography, styled } from "@mui/material";
@@ -115,6 +115,8 @@ export default function Tasks() {
   const [selectedPoint, setSelectedPoint] = useState<number[]>();
   const [currentLocation, setCurrentLocation] = useState<number[]>([]);
 
+  const [isFirstRoute, setIsFirstRoute] = useState<boolean>(true);
+
   const [ymaps, setYmaps] = useState<any>();
 
   const mapState = {
@@ -150,7 +152,6 @@ export default function Tasks() {
   const handlePlacemarkClick = (e: any) => {
     console.log(e);
     const clickedPoint = e.get("target").geometry.getCoordinates();
-    console.log(clickedPoint);
     setSelectedPoint(clickedPoint);
   };
 
@@ -167,15 +168,23 @@ export default function Tasks() {
         referencePoints: [pointA, pointB],
         params: {
           routingMode: "auto",
+          avoidTrafficJams: true,
         },
       },
       {
         boundsAutoApply: true,
       }
     );
-
-    map.current?.geoObjects.add(multiRoute);
-    
+    if (isFirstRoute) {
+      setIsFirstRoute(false);
+      map.current?.geoObjects.add(multiRoute);
+    } else {
+      map.current?.geoObjects.splice(
+        map.current?.geoObjects.getLength() - 1,
+        map.current?.geoObjects.getLength() - 1,
+        multiRoute
+      );
+    }
   };
 
   useEffect(() => {
@@ -207,10 +216,6 @@ export default function Tasks() {
                 options={{ position: { bottom: 180, right: 20 } }}
               />
               <ZoomControl options={{ position: { right: 20, bottom: 300 } }} />
-
-              <TrafficControl
-              // options={{ position: { right: 20, bottom: 300 } }}
-              />
 
               <Placemark
                 modules={["geoObject.addon.balloon"]}
