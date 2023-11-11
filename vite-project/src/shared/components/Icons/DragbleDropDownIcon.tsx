@@ -24,8 +24,8 @@ const DropListIcon = React.forwardRef<SVGSVGElement, SvgIconProps>(
         <path
           d="M2 2H34"
           stroke="#BDBDBD"
-          stroke-width="4"
-          stroke-linecap="round"
+          strokeWidth="4"
+          strokeLinecap="round"
         />
       </svg>
     </SvgIcon>
