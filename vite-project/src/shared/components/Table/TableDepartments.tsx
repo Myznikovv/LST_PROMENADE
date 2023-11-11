@@ -38,7 +38,7 @@ export default function TableDepartments({
 
   const handleDeleteRow = (id: string) => {
     const departments = additionalDepartments.filter((task) => {
-      return task.number !== id;
+      return task.id !== id;
     });
     setDepartmentList(departments);
   };
@@ -74,31 +74,33 @@ export default function TableDepartments({
       ))}
       {departmentList.map((department) => (
         <>
-          <Typography>{department.number}</Typography>
+          <Typography>{department.id}</Typography>
           <Typography>{department.address}</Typography>
           <Box>
             <BadgeStyled
-              status={department.date === "Давно" ? "info" : "warning"}
-              badgeContent={department.date}
+              status={
+                department.when_connected === "Давно" ? "info" : "warning"
+              }
+              badgeContent={department.when_connected}
               isIcon={true}
             />
           </Box>
           <Box>
             <BadgeStyled
-              status={department.isDelivered === "Да" ? "success" : "danger"}
-              badgeContent={department.isDelivered}
+              status={department.is_delivered === "Да" ? "success" : "danger"}
+              badgeContent={department.is_delivered}
               isIcon={true}
             />
           </Box>
-          <Typography>{department.amountDays}</Typography>
-          <Typography>{department.amountApproved}</Typography>
-          <Typography>{department.amountCards}</Typography>
+          <Typography>{department.days_passed}</Typography>
+          <Typography>{department.approved_amount}</Typography>
+          <Typography>{department.given_amount}</Typography>
           <Box display="flex">
-            <StyledButton onClick={() => handleDeleteRow(department.number)}>
+            <StyledButton onClick={() => handleDeleteRow(department.id)}>
               <DeleteOutlinedIcon />
             </StyledButton>
             <StyledButton
-              onClick={() => handleEditDepartment(department.number)}
+              onClick={() => handleEditDepartment(department.id)}
               style={{ color: "#3657CD" }}
             >
               <EditOutlinedIcon />

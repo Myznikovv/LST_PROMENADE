@@ -42,51 +42,51 @@ export interface ITableData {
 
 export const tableDataAddresses = [
   {
-    id: 43,
+    id: "43",
     address: "ул. им. Героя Аверкиева А.А., д. 8/1 к. мая, кв. 268",
     when_connected: "Давно",
     is_delivered: "Да",
-    days_passed: 0,
-    approved_amount: 3,
-    given_amount: 4,
+    days_passed: "0",
+    approved_amount: "3",
+    given_amount: "4",
   },
   {
-    id: 13,
+    id: "13",
     address: "ул. Уральская, д. 162",
     when_connected: "Вчера",
     is_delivered: "Да",
-    days_passed: 15,
-    approved_amount: 22,
-    given_amount: 16,
+    days_passed: "15",
+    approved_amount: "22",
+    given_amount: "16",
   },
   {
-    id: 4,
+    id: "4",
     address: "ул. им. Героя Аверкиева А.А., д. 8/1 к. мая, кв. 268",
     when_connected: "Давно",
     is_delivered: "Да",
-    days_passed: 0,
-    approved_amount: 3,
-    given_amount: 4,
+    days_passed: "0",
+    approved_amount: "3",
+    given_amount: "4",
   },
   {
-    id: 45,
+    id: "45",
     address: "ул. им. Героя Аверкиева А.А., д. 8/1 к. мая, кв. 268",
     when_connected: "Давно",
     is_delivered: "Да",
-    days_passed: 0,
-    approved_amount: 3,
-    given_amount: 4,
+    days_passed: "0",
+    approved_amount: "3",
+    given_amount: "4",
   },
 ];
 
 export interface ITableDataAddresses {
-  id: number;
+  id: string;
   address: string;
   when_connected: string;
   is_delivered: string;
-  days_passed: number;
-  approved_amount: number;
-  given_amount: number;
+  days_passed: string;
+  approved_amount: string;
+  given_amount: string;
 }
 
 export const tableDataEmployees = [
