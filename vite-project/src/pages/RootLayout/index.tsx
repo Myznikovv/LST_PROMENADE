@@ -5,13 +5,14 @@ import MobileRootLayout from "./MobileRootLayout";
 
 
 import { useNavigate } from "react-router-dom";
+import { getPermission } from "../../shared/hooks/usePermission";
 
 
 export default function RootLayout() {
   const mediaSize = useMediaSize();
   const navigate = useNavigate();
 
-  const permissionRole = "visitor" as string; //это временная заглушка по пермиссии для пользователя
+  const permissionRole = getPermission(); //это временная заглушка по пермиссии для пользователя
 
   useEffect(() => {
     permissionRole === "visitor"

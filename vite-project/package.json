@@ -23,7 +23,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.18.0",
     "react-swipeable-views": "^0.14.0",
-    "react-yandex-maps": "^4.6.0"
+    "react-yandex-maps": "^4.6.0",
+    "yup": "^1.3.2"
   },
   "devDependencies": {
     "@mui/x-charts": "^6.18.0",

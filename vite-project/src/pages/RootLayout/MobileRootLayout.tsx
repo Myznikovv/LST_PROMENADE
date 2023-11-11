@@ -4,9 +4,9 @@ import { Outlet } from "react-router-dom";
 
 import BottomBar from "./components/BottomBar";
 import MobileDummy from "../Dummies/MobileDummy";
+import { getPermission } from "../../shared/hooks/usePermission";
 
-const permissionRole = "visitor" as string; //это временная заглушка по пермиссии для пользователя
-
+const permissionRole = getPermission(); //это временная заглушка по пермиссии для пользователя
 
 export default function MobileRootLayout() {
   return (

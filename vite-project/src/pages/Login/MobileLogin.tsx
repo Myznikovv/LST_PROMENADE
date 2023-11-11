@@ -1,22 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/system";
 
-import OutlinedInput from "@mui/material/OutlinedInput";
+import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
 import { typographyMobile } from "../../shared/config/typography";
 import { palette } from "../../shared/config/palette";
 
-import { StyledFormControl, StyledFormHelperText } from ".";
 import SovcomBankLogo from "../../shared/components/Icons/SovcomBankLogo";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import ILogin from "../../shared/interfaces/ILogin";
+import Typography from "@mui/material/Typography";
+import Switch from "@mui/material/Switch";
+import LoginService from "../../shared/services/loginService";
+import { setPermission } from "../../shared/hooks/usePermission";
 
 const LoginLayoutMobile = styled("div")({
   background: palette.background.tertiary,
-  height: "100%"
+  height: "100%",
 });
 
-const LoginFormMobile = styled("div")({
+const LoginFormMobile = styled("form")({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -36,8 +42,9 @@ const TypographyH1Mobile = styled("h1")({
   width: "22.5rem",
 });
 
-const StyledInputMobile = styled(OutlinedInput)({
+const StyledInputMobile = styled(TextField)({
   width: "22.5rem",
+  marginBottom: "0.5rem",
   borderRadius: "0.625rem",
   background: palette.monochrome.white,
 });
@@ -55,59 +62,101 @@ export const StyledButtonMobile = styled(Button)({
   },
 });
 
+const StyledButton = styled(Button)({
+  ...typographyMobile.button,
+  borderRadius: "6.25rem",
+  background: palette.button.default,
+  color: palette.monochrome.white,
+  width: "22.5rem",
+  marginTop: "0.5rem",
+  padding: "0.9375rem",
+  ":hover": {
+    background: palette.button.hover,
+  },
+});
+
+const LoginSchema = Yup.object<ILogin>({
+  email: Yup.string()
+    .email("Введите почту - example@mail.ru")
+    .min(5, "Почта не может быть меньше 5 символов")
+    .required("Почта обязательна"),
+  password: Yup.string()
+    .min(5, "Пароль должен быть больше 5 символов")
+    .required("Пароль обязателен"),
+});
+
 export default function MobileLogin() {
   const navigate = useNavigate();
-  const [error] = useState<boolean>(false);
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [_, setData] = useState<ILogin>();
+  const [isChecked, setIsChecked] = useState<boolean>(false);
 
-  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
+  const fetchData = async ({ email, password }: ILogin) => {
+    const resp = await LoginService.login(email, password);
+    console.log(resp);
   };
 
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
+  const handleOnChange = () => {
+    if (isChecked) setPermission("visitor");
+    else setPermission("manager");
+    setIsChecked((prev) => !prev);
   };
 
-  const handleEnterClick = () => {
-    navigate("/tasks");
-  };
+  useEffect(() => {
+    setPermission("visitor");
+  }, []);
+
+  console.log(isChecked);
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: LoginSchema,
+    onSubmit: (values, { resetForm }) => {
+      setData(values);
+      resetForm();
+      navigate("/tasks");
+      fetchData(values);
+    },
+  });
+
   return (
     <LoginLayoutMobile>
-      <LoginFormMobile>
+      <LoginFormMobile onSubmit={formik.handleSubmit}>
         <TypographyH1Mobile>
-          Вход в Совкомком Визитер
+          Вход в Совкомбанк Визитер
           <SovcomBankLogoMobile />
         </TypographyH1Mobile>
-        <StyledFormControl error={error}>
-          {/* FIXME: border */}
-          <StyledInputMobile 
-            value={email}
-            onChange={handleEmailChange}
-            placeholder="Корпоративная почта"
-          />
-          {error ? (
-            <StyledFormHelperText id="my-helper-text">
-              Введена неверная почта
-            </StyledFormHelperText>
-          ) : null}
-        </StyledFormControl>
-        <StyledFormControl error={error}>
-          <StyledInputMobile
-            value={password}
-            type="password"
-            onChange={handlePasswordChange}
-            placeholder="Пароль"
-          />
-          {error ? (
-            <StyledFormHelperText id="my-helper-text">
-              Введён неверный пароль
-            </StyledFormHelperText>
-          ) : null}
-        </StyledFormControl>
-        <StyledButtonMobile onClick={handleEnterClick}>
-          Войти
-        </StyledButtonMobile>
+        <StyledInputMobile
+          id="email"
+          name="email"
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          placeholder="Корпоративная почта"
+          error={formik.touched.email && Boolean(formik.errors.email)}
+          helperText={
+            <Typography component={"p"}>
+              {formik.touched.email && formik.errors.email}
+            </Typography>
+          }
+        />
+        <StyledInputMobile
+          value={formik.values.password}
+          id="password"
+          name="password"
+          type="password"
+          onChange={formik.handleChange}
+          error={formik.touched.password && Boolean(formik.errors.password)}
+          placeholder="Пароль"
+          helperText={
+            <Typography>
+              {formik.touched.password && formik.errors.password}
+            </Typography>
+          }
+        />
+        <Switch checked={isChecked} onChange={handleOnChange} />
+        <StyledButton type="submit">Войти</StyledButton>
         {/*Пока что здесь будет заглушка и переход сразу на стартовую страницу */}
       </LoginFormMobile>
     </LoginLayoutMobile>
