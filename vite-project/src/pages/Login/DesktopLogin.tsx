@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { styled } from "@mui/material";
+import { Box, Switch, styled } from "@mui/material";
 
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Button from "@mui/material/Button";
@@ -11,6 +11,7 @@ import { typographyDesktop } from "../../shared/config/typography";
 
 import SovcomBankLogo from "../../shared/components/Icons/SovcomBankLogo";
 import { StyledFormControl, StyledFormHelperText } from ".";
+import { getPermission, setPermission } from "../../shared/hooks/usePermission";
 
 const LoginLayoutDesktop = styled("div")({
   background: theme.palette.background.default,
@@ -68,6 +69,9 @@ export default function DesktopLogin() {
   const [error] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [permission, setPermissionState] = useState<string | null>(
+    getPermission()
+  );
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -79,6 +83,17 @@ export default function DesktopLogin() {
 
   const handleEnterClick = () => {
     navigate("/tasks");
+  };
+
+  const handleOnChange = () => {
+    if (permission === "manager") {
+      setPermission("visitor");
+      setPermissionState("visitor");
+    } else if (permission === "visitor") {
+      setPermission("manager");
+      setPermissionState("manager");
+    }
+    window.location.reload();
   };
 
   return (
@@ -111,6 +126,14 @@ export default function DesktopLogin() {
               Введён неверный пароль
             </StyledFormHelperText>
           ) : null}
+          <Box margin="0 auto">
+            <span>Курьер</span>
+            <Switch
+              checked={permission === "manager"}
+              onChange={handleOnChange}
+            />
+            <span>Менеджер</span>
+          </Box>
         </StyledFormControl>
         <StyledButtonDesktop onClick={handleEnterClick}>
           Войти

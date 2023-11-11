@@ -15,7 +15,8 @@ import ILogin from "../../shared/interfaces/ILogin";
 import Typography from "@mui/material/Typography";
 import Switch from "@mui/material/Switch";
 import LoginService from "../../shared/services/loginService";
-import { setPermission } from "../../shared/hooks/usePermission";
+import { getPermission, setPermission } from "../../shared/hooks/usePermission";
+import Box from "@mui/material/Box";
 
 const LoginLayoutMobile = styled("div")({
   background: palette.background.tertiary,
@@ -79,18 +80,18 @@ const LoginSchema = Yup.object<ILogin>({
   email: Yup.string()
     .email("Введите почту - example@mail.ru")
     .min(5, "Почта не может быть меньше 5 символов")
-    .required("Почта обязательна")
-    .oneOf(["ivanov.a.f@sovkom.bank", "frolova.a.e@sovkom.bank"]),
+    .required("Почта обязательна"),
   password: Yup.string()
     .min(5, "Пароль должен быть больше 5 символов")
-    .required("Пароль обязателен")
-    .oneOf(["testpass48", "testpass21"])
+    .required("Пароль обязателен"),
 });
 
 export default function MobileLogin() {
   const navigate = useNavigate();
   const [_, setData] = useState<ILogin>();
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [permission, setPermissionState] = useState<string | null>(
+    getPermission()
+  );
 
   const fetchData = async ({ email, password }: ILogin) => {
     const resp = await LoginService.login(email, password);
@@ -98,9 +99,13 @@ export default function MobileLogin() {
   };
 
   const handleOnChange = () => {
-    if (isChecked) setPermission("visitor");
-    else setPermission("manager");
-    setIsChecked((prev) => !prev);
+    if (permission === "manager") {
+      setPermission("visitor");
+      setPermissionState("visitor");
+    } else if (permission === "visitor") {
+      setPermission("manager");
+      setPermissionState("manager");
+    }
   };
 
   const formik = useFormik({
@@ -151,7 +156,14 @@ export default function MobileLogin() {
             </Typography>
           }
         />
-        <Switch checked={isChecked} onChange={handleOnChange} />
+        <Box>
+          <span>Курьер</span>
+          <Switch
+            checked={permission === "manager"}
+            onChange={handleOnChange}
+          />
+          <span>Менеджер</span>
+        </Box>
         <StyledButton type="submit">Войти</StyledButton>
         {/*Пока что здесь будет заглушка и переход сразу на стартовую страницу */}
       </LoginFormMobile>
