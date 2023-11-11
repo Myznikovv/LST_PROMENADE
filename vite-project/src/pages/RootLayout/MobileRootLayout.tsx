@@ -7,6 +7,7 @@ import MobileDummy from "../Dummies/MobileDummy";
 
 const permissionRole = "visitor" as string; //это временная заглушка по пермиссии для пользователя
 
+
 export default function MobileRootLayout() {
   return (
     <>
