@@ -18,6 +18,8 @@ export default function RootLayout() {
     permissionRole === "visitor"
       ? navigate("/tasks")
       : navigate("/manager/dashboard");
+
+    console.log(permissionRole);
   }, []);
 
   return (

@@ -79,10 +79,12 @@ const LoginSchema = Yup.object<ILogin>({
   email: Yup.string()
     .email("Введите почту - example@mail.ru")
     .min(5, "Почта не может быть меньше 5 символов")
-    .required("Почта обязательна"),
+    .required("Почта обязательна")
+    .oneOf(["ivanov.a.f@sovkom.bank", "frolova.a.e@sovkom.bank"]),
   password: Yup.string()
     .min(5, "Пароль должен быть больше 5 символов")
-    .required("Пароль обязателен"),
+    .required("Пароль обязателен")
+    .oneOf(["testpass48", "testpass21"])
 });
 
 export default function MobileLogin() {
@@ -100,12 +102,6 @@ export default function MobileLogin() {
     else setPermission("manager");
     setIsChecked((prev) => !prev);
   };
-
-  useEffect(() => {
-    setPermission("visitor");
-  }, []);
-
-  console.log(isChecked);
 
   const formik = useFormik({
     initialValues: {
