@@ -3,6 +3,7 @@ import { createTheme } from "@mui/material";
 import InterRegular from "/fonts/Inter-Regular.ttf";
 import InterMedium from "/fonts/Inter-Medium.ttf";
 import InterBold from "/fonts/Inter-Bold.ttf";
+import { palette } from "../../../shared/config/palette";
 
 export const theme = createTheme({
   palette: {
@@ -23,6 +24,14 @@ export const theme = createTheme({
     fontFamily: "Inter, sans-serif",
   },
   components: {
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          backgroundColor: palette.background.tertiary,
+          margin: 0,
+        },
+      },
+    },
     MuiBottomNavigationAction: {
       defaultProps: {
         disableRipple: true,

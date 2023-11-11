@@ -35,6 +35,7 @@ import AvatarProfile from "../../shared/assets/Avatar.png";
 import { Outlet, useNavigate } from "react-router-dom";
 import DesktopDummy from "../Dummies/DesktopDummy";
 import { theme } from "../../app/providers/ThemeProvider/theme";
+import { getPermission } from "../../shared/hooks/usePermission";
 
 const Drawer = styled(Box)`
   position: fixed;
@@ -99,7 +100,8 @@ const Link = React.forwardRef<HTMLAnchorElement, RouterLinkProps>(
 );
 
 export default function DesktopRootLayout() {
-  const permissionRole = "manager" as string; //это временная заглушка по пермиссии для пользователя
+
+  const permissionRole = getPermission(); //это временная заглушка по пермиссии для пользователя
   const navigate = useNavigate();
 
   return (
