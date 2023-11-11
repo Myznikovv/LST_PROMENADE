@@ -4,6 +4,10 @@ import {
   Map,
   GeolocationControl,
   ZoomControl,
+  TrafficControl,
+  Placemark,
+  RoutePanel,
+  withYMaps,
 } from "@pbe/react-yandex-maps";
 
 import { Divider, Typography, styled } from "@mui/material";
@@ -12,7 +16,7 @@ import { Tabs } from "@mui/base/Tabs";
 import { typographyMobile } from "../../shared/config/typography";
 
 import BottomSheet from "../../shared/components/BottomSheet";
-import { useState } from "react";
+import { SetStateAction, useEffect, useMemo, useState } from "react";
 
 import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
 import { palette } from "../../shared/config/palette";
@@ -108,6 +112,11 @@ const BottomBlock = styled(Box)({
 export default function Tasks() {
   const [isOpenTasksList, setIsOpenTasksList] = useState(false);
 
+  const [selectedPoint, setSelectedPoint] = useState<string[]>();
+  const [currentLocation, setCurrentLocation] = useState<string[]>();
+
+  console.log(currentLocation);
+
   const openModal = () => {
     setIsOpenTasksList(true);
   };
@@ -116,11 +125,30 @@ export default function Tasks() {
     setIsOpenTasksList(false);
   };
 
+  const handleGeolocationSuccess = (e: any) => {
+    const coordinates = e.get("position");
+    console.log(e, coordinates);
+    setCurrentLocation(coordinates);
+  };
+
+  const handlePlacemarkClick = (e: any) => {
+    console.log(e);
+    const clickedPoint = e.get("target").geometry.getCoordinates();
+    console.log(clickedPoint);
+    setSelectedPoint(clickedPoint);
+  };
+
+ 
   return (
     <>
       <Box>
         <div>
-          <YMaps>
+          <YMaps
+            query={{
+              apikey: "d5918306-ec3f-40ad-a705-0c3d36aa30e8",
+              lang: "ru_RU",
+            }}
+          >
             <Map
               defaultState={{ center: [55.75, 37.57], zoom: 13 }}
               width={"100%"}
@@ -128,8 +156,35 @@ export default function Tasks() {
             >
               <GeolocationControl
                 options={{ position: { bottom: 180, right: 20 } }}
+                events={{}}
               />
               <ZoomControl options={{ position: { right: 20, bottom: 300 } }} />
+
+              <TrafficControl
+              // options={{ position: { right: 20, bottom: 300 } }}
+              />
+
+              <Placemark
+                modules={["geoObject.addon.balloon"]}
+                geometry={[55.75, 37.57]}
+                options={{ draggable: true }}
+                properties={{
+                  balloonContentBody: "Адрес такой-то",
+                }}
+                onClick={handlePlacemarkClick}
+              />
+
+              <Placemark
+                modules={["geoObject.addon.balloon"]}
+                geometry={[55.76, 37.58]}
+                options={{ draggable: true }}
+                properties={{
+                  balloonContentBody: "Адрес такой-то",
+                }}
+                onClick={handlePlacemarkClick}
+              />
+
+              {selectedPoint && <RoutePanel routes={[]}></RoutePanel>}
             </Map>
           </YMaps>
         </div>
