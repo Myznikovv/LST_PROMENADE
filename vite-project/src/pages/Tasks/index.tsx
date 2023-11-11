@@ -1,10 +1,14 @@
+//@ts-nocheck
+
 import Box from "@mui/material/Box";
 import {
   YMaps,
   Map,
   GeolocationControl,
   ZoomControl,
-} from "@pbe/react-yandex-maps";
+  TrafficControl,
+  Placemark,
+} from "react-yandex-maps";
 
 import { Divider, Typography, styled } from "@mui/material";
 import { theme } from "../../app/providers/ThemeProvider/theme";
@@ -12,7 +16,7 @@ import { Tabs } from "@mui/base/Tabs";
 import { typographyMobile } from "../../shared/config/typography";
 
 import BottomSheet from "../../shared/components/BottomSheet";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
 import { palette } from "../../shared/config/palette";
@@ -108,6 +112,35 @@ const BottomBlock = styled(Box)({
 export default function Tasks() {
   const [isOpenTasksList, setIsOpenTasksList] = useState(false);
 
+  const [selectedPoint, setSelectedPoint] = useState<number[]>();
+  const [currentLocation, setCurrentLocation] = useState<number[]>([]);
+
+  const [isFirstRoute, setIsFirstRoute] = useState<boolean>(true);
+
+  const [ymaps, setYmaps] = useState<any>();
+
+  const mapState = {
+    center: [55.739625, 37.5412],
+    zoom: 12,
+  };
+
+  const map = useRef(null);
+
+  console.log("selectedPoint", selectedPoint);
+  console.log("currentLocation", currentLocation);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        setCurrentLocation([latitude, longitude]);
+      },
+      (error) => {
+        console.error("Ошибка при определении местоположения:", error);
+      }
+    );
+  }, []);
+
   const openModal = () => {
     setIsOpenTasksList(true);
   };
@@ -116,20 +149,93 @@ export default function Tasks() {
     setIsOpenTasksList(false);
   };
 
+  const handlePlacemarkClick = (e: any) => {
+    console.log(e);
+    const clickedPoint = e.get("target").geometry.getCoordinates();
+    setSelectedPoint(clickedPoint);
+  };
+
+  const saveYmap = (ymaps: any) => {
+    setYmaps(ymaps);
+  };
+
+  const addRoute = () => {
+    const pointA = currentLocation; // Москва
+    const pointB = selectedPoint; // Санкт-Петербург
+
+    const multiRoute = new ymaps.multiRouter.MultiRoute(
+      {
+        referencePoints: [pointA, pointB],
+        params: {
+          routingMode: "auto",
+          avoidTrafficJams: true,
+        },
+      },
+      {
+        boundsAutoApply: true,
+      }
+    );
+    if (isFirstRoute) {
+      setIsFirstRoute(false);
+      map.current?.geoObjects.add(multiRoute);
+    } else {
+      map.current?.geoObjects.splice(
+        map.current?.geoObjects.getLength() - 1,
+        map.current?.geoObjects.getLength() - 1,
+        multiRoute
+      );
+    }
+  };
+
+  useEffect(() => {
+    if (selectedPoint && currentLocation) {
+      addRoute();
+    }
+  }, [selectedPoint]);
+
   return (
     <>
       <Box>
         <div>
-          <YMaps>
+          <YMaps
+            query={{
+              apikey: "d5918306-ec3f-40ad-a705-0c3d36aa30e8",
+              lang: "ru_RU",
+            }}
+          >
             <Map
               defaultState={{ center: [55.75, 37.57], zoom: 13 }}
               width={"100%"}
               height={"100vh"}
+              modules={["multiRouter.MultiRoute"]}
+              state={mapState}
+              instanceRef={map}
+              onLoad={saveYmap}
             >
               <GeolocationControl
                 options={{ position: { bottom: 180, right: 20 } }}
               />
               <ZoomControl options={{ position: { right: 20, bottom: 300 } }} />
+
+              <Placemark
+                modules={["geoObject.addon.balloon"]}
+                geometry={[55.75, 37.57]}
+                options={{ draggable: true }}
+                // properties={{
+                //   balloonContentBody: "Адрес такой-то",
+                // }}
+                onClick={handlePlacemarkClick}
+              />
+
+              <Placemark
+                modules={["geoObject.addon.balloon"]}
+                geometry={[55.76, 37.58]}
+                options={{ draggable: true }}
+                // properties={{
+                //   balloonContentBody: "Адрес такой-то",
+                // }}
+                onClick={handlePlacemarkClick}
+              />
             </Map>
           </YMaps>
         </div>
