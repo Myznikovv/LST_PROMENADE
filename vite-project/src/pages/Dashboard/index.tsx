@@ -11,7 +11,7 @@ import { theme } from "../../app/providers/ThemeProvider/theme";
 
 import FiberManualRecordRoundedIcon from "@mui/icons-material/FiberManualRecordRounded";
 import { PieChart, pieArcLabelClasses } from "@mui/x-charts/PieChart";
-import axiosInstance from "../../shared/api/axiosInstance";
+import axiosInstance from "../../shared/api/httpClient";
 import { useEffect } from "react";
 import PointService from "../../shared/services/pointService";
 import WorkersService from "../../shared/services/workersService";
@@ -46,19 +46,14 @@ const data = [
 ];
 
 const DashboardPage = () => {
-  const getData = async () => {
-    const points = await PointService.getPoints();
-  };
 
   const testFetch = async () => {
-    const resp = await fetch("http://94.139.254.148/points/get").then(
-      (res) => res.json()
+    const resp = await fetch("http://94.139.254.148/points/get").then((res) =>
+      res.json()
     );
-    console.log(resp);
   };
 
   useEffect(() => {
-    // getData();
     testFetch();
   }, []);
 

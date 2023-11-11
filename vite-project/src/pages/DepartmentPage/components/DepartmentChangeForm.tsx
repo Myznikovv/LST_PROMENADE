@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import { useFormik } from "formik";
 import { ITableDataAddresses } from "../../../shared/components/Table/components/TableData";
+import PointService from "../../../shared/services/pointService";
 
 const StyledButton = styled(Button)({
   color: "black",
@@ -51,17 +52,37 @@ export default function DepartmentChangeForm({
   department?: ITableDataAddresses;
 }) {
   const navigate = useNavigate();
+
   const formik = useFormik<ITableDataAddresses>({
     initialValues: {
       address: department ? department.address : "",
-      number: department ? department.number : "",
-      amountApproved: department ? department.amountApproved : "",
-      amountCards: department ? department.amountCards : "",
-      amountDays: department ? department.amountDays : "",
-      date: department ? department.date : "",
-      isDelivered: department ? department.isDelivered : "",
+      id: department ? department.id : 0,
+      approved_amount: department ? department.approved_amount : 0,
+      given_amount: department ? department.given_amount : 0,
+      days_passed: department ? department.days_passed : 0,
+      when_connected: department ? department.when_connected : "",
+      is_delivered: department ? department.is_delivered : "",
     },
-    onSubmit: (values, { resetForm }) => {
+    onSubmit: async (values, { resetForm }) => {
+      type === "create"
+        ? await PointService.addPoints(
+            Number(values.id),
+            values.address,
+            values.when_connected,
+            values.is_delivered,
+            Number(values.given_amount),
+            Number(values.approved_amount),
+            Number(values.days_passed)
+          )
+        : await PointService.updatePointsById(
+            Number(values.id),
+            values.address,
+            values.when_connected,
+            values.is_delivered,
+            Number(values.given_amount),
+            Number(values.approved_amount),
+            Number(values.days_passed)
+          );
       onSubmitForm(values);
       alert(JSON.stringify(values, null, 2));
       navigate("/manager/departments");
@@ -121,7 +142,7 @@ export default function DepartmentChangeForm({
             <OutlinedInput
               id="number"
               name="number"
-              value={formik.values.number}
+              value={formik.values.id}
               onChange={formik.handleChange}
               sx={{ borderRadius: "0.625rem" }}
               placeholder="Номер"
@@ -145,7 +166,7 @@ export default function DepartmentChangeForm({
               sx={{ borderRadius: "0.625rem" }}
               id="date"
               name="date"
-              value={formik.values.date}
+              value={formik.values.when_connected}
               onChange={formik.handleChange}
             >
               <MenuItem value="Сегодня">Сегодня</MenuItem>
@@ -156,7 +177,7 @@ export default function DepartmentChangeForm({
               sx={{ borderRadius: "0.625rem" }}
               id="isDelivered"
               name="isDelivered"
-              value={formik.values.isDelivered}
+              value={formik.values.is_delivered}
               onChange={formik.handleChange}
             >
               <MenuItem value="Да">Да</MenuItem>
@@ -174,7 +195,7 @@ export default function DepartmentChangeForm({
               placeholder="Кол-во дней после выдачи последней карты"
               id="amountDays"
               name="amountDays"
-              value={formik.values.amountDays}
+              value={formik.values.days_passed}
               onChange={formik.handleChange}
             />
           </Box>
@@ -189,7 +210,7 @@ export default function DepartmentChangeForm({
               placeholder="Кол-во одобренных заявок"
               id="amountApproved"
               name="amountApproved"
-              value={formik.values.amountApproved}
+              value={formik.values.approved_amount}
               onChange={formik.handleChange}
             />
             <OutlinedInput
@@ -197,7 +218,7 @@ export default function DepartmentChangeForm({
               placeholder="Кол-во выданных карт"
               id="amountCards"
               name="amountCards"
-              value={formik.values.amountCards}
+              value={formik.values.given_amount}
               onChange={formik.handleChange}
             />
           </Box>

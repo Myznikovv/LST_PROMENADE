@@ -24,6 +24,7 @@ import { ITaskCard } from "../../shared/interfaces/ITaskCard";
 import TaskCard from "../../shared/components/TaskCard";
 import { TabsList } from "../../shared/components/Tabs/TabList";
 import { Tab } from "../../shared/components/Tabs/Tab";
+import PointService from "../../shared/services/pointService";
 
 const tasks = [
   {
@@ -126,8 +127,12 @@ export default function Tasks() {
 
   const map = useRef(null);
 
-  console.log("selectedPoint", selectedPoint);
-  console.log("currentLocation", currentLocation);
+  const getPoints = async () => {
+    const poins = await PointService.getPoints();
+    console.log(poins)
+  };
+
+  useEffect(() => {}, []);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -150,7 +155,6 @@ export default function Tasks() {
   };
 
   const handlePlacemarkClick = (e: any) => {
-    console.log(e);
     const clickedPoint = e.get("target").geometry.getCoordinates();
     setSelectedPoint(clickedPoint);
   };
@@ -160,8 +164,8 @@ export default function Tasks() {
   };
 
   const addRoute = () => {
-    const pointA = currentLocation; // Москва
-    const pointB = selectedPoint; // Санкт-Петербург
+    const pointA = currentLocation;
+    const pointB = selectedPoint;
 
     const multiRoute = new ymaps.multiRouter.MultiRoute(
       {

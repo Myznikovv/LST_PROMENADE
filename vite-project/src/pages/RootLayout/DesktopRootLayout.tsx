@@ -99,7 +99,7 @@ const Link = React.forwardRef<HTMLAnchorElement, RouterLinkProps>(
 );
 
 export default function DesktopRootLayout() {
-  const permissionRole = "visitor" as string; //это временная заглушка по пермиссии для пользователя
+  const permissionRole = "manager" as string; //это временная заглушка по пермиссии для пользователя
   const navigate = useNavigate();
 
   return (
